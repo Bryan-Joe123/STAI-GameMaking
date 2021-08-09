@@ -1,4 +1,4 @@
-[gd_scene load_steps=8 format=2]
+[gd_scene load_steps=9 format=2]
 
 [ext_resource path="res://Scenes/Player.tscn" type="PackedScene" id=1]
 [ext_resource path="res://addons/zylann.hterrain/hterrain.gd" type="Script" id=2]
@@ -6,6 +6,7 @@
 [ext_resource path="res://t_data/slot0_albedo_bump.packed_tex" type="Texture" id=4]
 [ext_resource path="res://t_data/slot0_normal_roughness.packed_tex" type="Texture" id=5]
 [ext_resource path="res://t_data/data.hterrain" type="Resource" id=6]
+[ext_resource path="res://Models/Rocks/1/Rock.tscn" type="PackedScene" id=7]
 
 [sub_resource type="Resource" id=1]
 script = ExtResource( 3 )
@@ -15,7 +16,7 @@ textures = [ [ ExtResource( 4 ) ], [ ExtResource( 5 ) ] ]
 [node name="MainScene" type="Spatial"]
 
 [node name="FPS" parent="." instance=ExtResource( 1 )]
-transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 120.858, 23.2519, 89.1734 )
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 250, 52.8751, 250 )
 
 [node name="HTerrain" type="Spatial" parent="."]
 script = ExtResource( 2 )
@@ -38,3 +39,24 @@ shader_params/u_tile_reduction = Plane( 0, 0, 0, 0 )
 shader_params/u_globalmap_blend_start = null
 shader_params/u_globalmap_blend_distance = null
 shader_params/u_colormap_opacity_per_texture = Plane( 1, 1, 1, 1 )
+
+[node name="Spatial" type="Spatial" parent="."]
+transform = Transform( 0.269752, 0, 0, 0, 0.269752, 0, 0, 0, 0.269752, 252.018, 50.1207, 243.78 )
+
+[node name="Rock1" parent="Spatial" instance=ExtResource( 7 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 31.8854 )
+
+[node name="Rock2" parent="Spatial" instance=ExtResource( 7 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 3.74554 )
+
+[node name="Rock3" parent="Spatial" instance=ExtResource( 7 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -18.0057, 0, 3.74554 )
+
+[node name="Rock4" parent="Spatial" instance=ExtResource( 7 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 12.3333, 0, 23.2009 )
+
+[node name="Rock5" parent="Spatial" instance=ExtResource( 7 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -9.37817, 0, -8.24884 )
+
+[node name="Rock6" parent="Spatial" instance=ExtResource( 7 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 5.84564, 0, 12.8611 )

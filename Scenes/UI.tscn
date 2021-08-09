@@ -1,0 +1,254 @@
+[gd_scene load_steps=14 format=2]
+
+[ext_resource path="res://Font/SecularOne-Regular.ttf" type="DynamicFontData" id=1]
+[ext_resource path="res://Assets/Ui/CrossHair.png" type="Texture" id=2]
+[ext_resource path="res://Assets/Ui/Inventory.png" type="Texture" id=3]
+[ext_resource path="res://Script/UI.gd" type="Script" id=4]
+[ext_resource path="res://Assets/2D/Inventory/glow-rock.png" type="Texture" id=5]
+
+[sub_resource type="DynamicFont" id=1]
+size = 49
+font_data = ExtResource( 1 )
+
+[sub_resource type="StyleBoxFlat" id=2]
+bg_color = Color( 0.819608, 0.396078, 0.396078, 1 )
+
+[sub_resource type="StyleBoxFlat" id=3]
+bg_color = Color( 0.545098, 0.545098, 0.545098, 0 )
+
+[sub_resource type="StyleBoxTexture" id=4]
+texture = ExtResource( 3 )
+normal_map = ExtResource( 3 )
+region_rect = Rect2( 0, 0, 32, 32 )
+
+[sub_resource type="DynamicFont" id=8]
+font_data = ExtResource( 1 )
+
+[sub_resource type="VisualShaderNodeColorConstant" id=5]
+constant = Color( 0.546875, 0.546875, 0.546875, 1 )
+
+[sub_resource type="VisualShader" id=6]
+code = "shader_type spatial;
+
+
+
+void vertex() {
+// Output:0
+
+}
+
+void fragment() {
+// Color:2
+	vec3 n_out2p0 = vec3(0.546875, 0.546875, 0.546875);
+	float n_out2p1 = 1.000000;
+
+// Output:0
+	ALPHA = dot(n_out2p0, vec3(0.333333, 0.333333, 0.333333));
+
+}
+
+void light() {
+// Output:0
+
+}
+"
+graph_offset = Vector2( -131, 120 )
+nodes/fragment/2/node = SubResource( 5 )
+nodes/fragment/2/position = Vector2( 200, 220 )
+nodes/fragment/connections = PoolIntArray( 2, 0, 0, 1 )
+
+[sub_resource type="ShaderMaterial" id=7]
+shader = SubResource( 6 )
+
+[node name="UI" type="Control"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+script = ExtResource( 4 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="CrossHair" type="Control" parent="."]
+anchor_left = 0.48
+anchor_top = 0.467
+anchor_right = 0.52
+anchor_bottom = 0.533
+margin_left = 0.47998
+margin_top = -0.200012
+margin_right = -0.480042
+margin_bottom = 0.199982
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="sprite" type="Sprite" parent="CrossHair"]
+position = Vector2( 20, 20 )
+scale = Vector2( 2.5, 2.5 )
+texture = ExtResource( 2 )
+
+[node name="Oxygen" type="Control" parent="."]
+visible = false
+margin_left = 64.0
+margin_top = 24.0
+margin_right = 120.0
+margin_bottom = 80.0
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Label" type="Label" parent="Oxygen"]
+margin_left = -52.0
+margin_top = -2.0
+margin_right = 9.0
+margin_bottom = 71.0
+custom_fonts/font = SubResource( 1 )
+text = "O2"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Bar" type="ProgressBar" parent="Oxygen"]
+anchor_left = 0.2
+anchor_right = 5.8
+anchor_bottom = 1.2
+custom_styles/fg = SubResource( 2 )
+custom_styles/bg = SubResource( 3 )
+step = 0.001
+value = 100.0
+percent_visible = false
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Inventory" type="HBoxContainer" parent="."]
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+margin_left = -260.0
+margin_top = -64.0
+margin_right = 260.0
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Item1" type="Panel" parent="Inventory"]
+self_modulate = Color( 1, 1, 1, 0.529412 )
+margin_right = 61.0
+margin_bottom = 64.0
+size_flags_horizontal = 3
+size_flags_vertical = 3
+custom_styles/panel = SubResource( 4 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="glow-rock" type="Sprite" parent="Inventory/Item1"]
+visible = false
+modulate = Color( 0.435294, 0.976471, 0.988235, 1 )
+position = Vector2( 30.5956, 31.5281 )
+scale = Vector2( 0.115721, 0.169303 )
+texture = ExtResource( 5 )
+
+[node name="Count" type="Label" parent="Inventory/Item1"]
+anchor_left = 0.5
+anchor_right = 0.5
+margin_left = 10.3765
+margin_top = 4.36536
+margin_right = 26.3765
+margin_bottom = 18.3654
+custom_fonts/font = SubResource( 8 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Item2" type="Panel" parent="Inventory"]
+self_modulate = Color( 1, 1, 1, 0.529412 )
+material = SubResource( 7 )
+margin_left = 65.0
+margin_right = 126.0
+margin_bottom = 64.0
+size_flags_horizontal = 3
+size_flags_vertical = 3
+custom_styles/panel = SubResource( 4 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Item3" type="Panel" parent="Inventory"]
+self_modulate = Color( 1, 1, 1, 0.529412 )
+material = SubResource( 7 )
+margin_left = 130.0
+margin_right = 191.0
+margin_bottom = 64.0
+size_flags_horizontal = 3
+size_flags_vertical = 3
+custom_styles/panel = SubResource( 4 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Item4" type="Panel" parent="Inventory"]
+self_modulate = Color( 1, 1, 1, 0.529412 )
+material = SubResource( 7 )
+margin_left = 195.0
+margin_right = 256.0
+margin_bottom = 64.0
+size_flags_horizontal = 3
+size_flags_vertical = 3
+custom_styles/panel = SubResource( 4 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Item5" type="Panel" parent="Inventory"]
+self_modulate = Color( 1, 1, 1, 0.529412 )
+material = SubResource( 7 )
+margin_left = 260.0
+margin_right = 321.0
+margin_bottom = 64.0
+size_flags_horizontal = 3
+size_flags_vertical = 3
+custom_styles/panel = SubResource( 4 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Item6" type="Panel" parent="Inventory"]
+self_modulate = Color( 1, 1, 1, 0.529412 )
+material = SubResource( 7 )
+margin_left = 325.0
+margin_right = 386.0
+margin_bottom = 64.0
+size_flags_horizontal = 3
+size_flags_vertical = 3
+custom_styles/panel = SubResource( 4 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Item7" type="Panel" parent="Inventory"]
+self_modulate = Color( 1, 1, 1, 0.529412 )
+material = SubResource( 7 )
+margin_left = 390.0
+margin_right = 451.0
+margin_bottom = 64.0
+size_flags_horizontal = 3
+size_flags_vertical = 3
+custom_styles/panel = SubResource( 4 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Item8" type="Panel" parent="Inventory"]
+self_modulate = Color( 1, 1, 1, 0.529412 )
+material = SubResource( 7 )
+margin_left = 455.0
+margin_right = 520.0
+margin_bottom = 64.0
+size_flags_horizontal = 3
+size_flags_vertical = 3
+custom_styles/panel = SubResource( 4 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
