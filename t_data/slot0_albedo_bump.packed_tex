@@ -1,0 +1,8 @@
+{
+	"contains_albedo": true,
+	"resolution": 512,
+	"src": {
+		"a": "res://Mats/Floor/Rock018_2K_Displacement.jpg",
+		"rgb": "res://Mats/Floor/Rock018_2K_Color.jpg"
+	}
+}
