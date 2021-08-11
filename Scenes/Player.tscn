@@ -37,6 +37,6 @@ omni_attenuation = 2.63902
 [node name="RayCast" type="RayCast" parent="Head"]
 transform = Transform( -1, 0, -8.74228e-08, 0, 1, 0, 8.74228e-08, 0, -1, 0, 0, 0 )
 enabled = true
-cast_to = Vector3( 0, 0, 300 )
+cast_to = Vector3( 0, 0, 5 )
 
 [node name="UI" parent="." instance=ExtResource( 2 )]

@@ -58,11 +58,9 @@ func _physics_process(delta):
 		$Head/FlashLight.visible = true
 	
 	if $Head/RayCast.is_colliding() and Input.is_action_just_pressed("pick"):
-		add_inventory("test",1)
 		var body = $Head/RayCast.get_collider()
 		if body.is_in_group("Pickable"):
-			add_inventory("test",1)
-			body.queue_free()
+			add_inventory(body.get_groups()[0],1,body)
 	
 	#jumping and gravity
 	if is_on_floor():
@@ -84,6 +82,20 @@ func _physics_process(delta):
 	
 	move_and_slide_with_snap(movement, snap, Vector3.UP)
 
-func add_inventory(item,value):
+func add_inventory(item,value,body):
+	var count = 0
 	if inventory.size() < 8:
-		inventory.append({"item":item,"value":value})
+		if not inventory == []:
+			for x in inventory:
+				if x.item == item:
+					inventory[count].value+=1
+				else:
+					inventory.append({"item":item,"value":value})
+					break
+				count+=1
+		else:
+			if inventory.size() < 8:
+				inventory.append({"item":item,"value":value})
+		body.queue_free()
+	print(inventory)
+	

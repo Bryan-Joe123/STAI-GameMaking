@@ -21,14 +21,16 @@ texture = ExtResource( 3 )
 normal_map = ExtResource( 3 )
 region_rect = Rect2( 0, 0, 32, 32 )
 
-[sub_resource type="DynamicFont" id=8]
+[sub_resource type="DynamicFont" id=5]
 font_data = ExtResource( 1 )
 
-[sub_resource type="VisualShaderNodeColorConstant" id=5]
+[sub_resource type="VisualShaderNodeColorConstant" id=6]
 constant = Color( 0.546875, 0.546875, 0.546875, 1 )
 
-[sub_resource type="VisualShader" id=6]
+[sub_resource type="VisualShader" id=7]
 code = "shader_type spatial;
+render_mode specular_schlick_ggx;
+
 
 
 
@@ -53,12 +55,12 @@ void light() {
 }
 "
 graph_offset = Vector2( -131, 120 )
-nodes/fragment/2/node = SubResource( 5 )
+nodes/fragment/2/node = SubResource( 6 )
 nodes/fragment/2/position = Vector2( 200, 220 )
 nodes/fragment/connections = PoolIntArray( 2, 0, 0, 1 )
 
-[sub_resource type="ShaderMaterial" id=7]
-shader = SubResource( 6 )
+[sub_resource type="ShaderMaterial" id=8]
+shader = SubResource( 7 )
 
 [node name="UI" type="Control"]
 anchor_right = 1.0
@@ -151,87 +153,188 @@ scale = Vector2( 0.115721, 0.169303 )
 texture = ExtResource( 5 )
 
 [node name="Count" type="Label" parent="Inventory/Item1"]
+visible = false
 anchor_left = 0.5
 anchor_right = 0.5
 margin_left = 10.3765
 margin_top = 4.36536
 margin_right = 26.3765
-margin_bottom = 18.3654
-custom_fonts/font = SubResource( 8 )
+margin_bottom = 28.3654
+custom_fonts/font = SubResource( 5 )
 __meta__ = {
 "_edit_use_anchors_": false
 }
 
 [node name="Item2" type="Panel" parent="Inventory"]
 self_modulate = Color( 1, 1, 1, 0.529412 )
-material = SubResource( 7 )
+material = SubResource( 8 )
 margin_left = 65.0
-margin_right = 126.0
+margin_right = 127.0
 margin_bottom = 64.0
 size_flags_horizontal = 3
 size_flags_vertical = 3
 custom_styles/panel = SubResource( 4 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="glow-rock" type="Sprite" parent="Inventory/Item2"]
+visible = false
+modulate = Color( 0.435294, 0.976471, 0.988235, 1 )
+position = Vector2( 30.5956, 31.5281 )
+scale = Vector2( 0.115721, 0.169303 )
+texture = ExtResource( 5 )
+
+[node name="Count" type="Label" parent="Inventory/Item2"]
+visible = false
+anchor_left = 0.5
+anchor_right = 0.5
+margin_left = 10.3765
+margin_top = 4.36536
+margin_right = 26.3765
+margin_bottom = 28.3654
+custom_fonts/font = SubResource( 5 )
 __meta__ = {
 "_edit_use_anchors_": false
 }
 
 [node name="Item3" type="Panel" parent="Inventory"]
 self_modulate = Color( 1, 1, 1, 0.529412 )
-material = SubResource( 7 )
-margin_left = 130.0
-margin_right = 191.0
+material = SubResource( 8 )
+margin_left = 131.0
+margin_right = 192.0
 margin_bottom = 64.0
 size_flags_horizontal = 3
 size_flags_vertical = 3
 custom_styles/panel = SubResource( 4 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="glow-rock" type="Sprite" parent="Inventory/Item3"]
+visible = false
+modulate = Color( 0.435294, 0.976471, 0.988235, 1 )
+position = Vector2( 30.5956, 31.5281 )
+scale = Vector2( 0.115721, 0.169303 )
+texture = ExtResource( 5 )
+
+[node name="Count" type="Label" parent="Inventory/Item3"]
+visible = false
+anchor_left = 0.5
+anchor_right = 0.5
+margin_left = 10.3765
+margin_top = 4.36536
+margin_right = 26.3765
+margin_bottom = 28.3654
+custom_fonts/font = SubResource( 5 )
 __meta__ = {
 "_edit_use_anchors_": false
 }
 
 [node name="Item4" type="Panel" parent="Inventory"]
 self_modulate = Color( 1, 1, 1, 0.529412 )
-material = SubResource( 7 )
-margin_left = 195.0
-margin_right = 256.0
+material = SubResource( 8 )
+margin_left = 196.0
+margin_right = 258.0
 margin_bottom = 64.0
 size_flags_horizontal = 3
 size_flags_vertical = 3
 custom_styles/panel = SubResource( 4 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="glow-rock" type="Sprite" parent="Inventory/Item4"]
+visible = false
+modulate = Color( 0.435294, 0.976471, 0.988235, 1 )
+position = Vector2( 30.5956, 31.5281 )
+scale = Vector2( 0.115721, 0.169303 )
+texture = ExtResource( 5 )
+
+[node name="Count" type="Label" parent="Inventory/Item4"]
+visible = false
+anchor_left = 0.5
+anchor_right = 0.5
+margin_left = 10.3765
+margin_top = 4.36536
+margin_right = 26.3765
+margin_bottom = 28.3654
+custom_fonts/font = SubResource( 5 )
 __meta__ = {
 "_edit_use_anchors_": false
 }
 
 [node name="Item5" type="Panel" parent="Inventory"]
 self_modulate = Color( 1, 1, 1, 0.529412 )
-material = SubResource( 7 )
-margin_left = 260.0
-margin_right = 321.0
+material = SubResource( 8 )
+margin_left = 262.0
+margin_right = 323.0
 margin_bottom = 64.0
 size_flags_horizontal = 3
 size_flags_vertical = 3
 custom_styles/panel = SubResource( 4 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="glow-rock" type="Sprite" parent="Inventory/Item5"]
+visible = false
+modulate = Color( 0.435294, 0.976471, 0.988235, 1 )
+position = Vector2( 30.5956, 31.5281 )
+scale = Vector2( 0.115721, 0.169303 )
+texture = ExtResource( 5 )
+
+[node name="Count" type="Label" parent="Inventory/Item5"]
+visible = false
+anchor_left = 0.5
+anchor_right = 0.5
+margin_left = 10.3765
+margin_top = 4.36536
+margin_right = 26.3765
+margin_bottom = 28.3654
+custom_fonts/font = SubResource( 5 )
 __meta__ = {
 "_edit_use_anchors_": false
 }
 
 [node name="Item6" type="Panel" parent="Inventory"]
 self_modulate = Color( 1, 1, 1, 0.529412 )
-material = SubResource( 7 )
-margin_left = 325.0
-margin_right = 386.0
+material = SubResource( 8 )
+margin_left = 327.0
+margin_right = 389.0
 margin_bottom = 64.0
 size_flags_horizontal = 3
 size_flags_vertical = 3
 custom_styles/panel = SubResource( 4 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="glow-rock" type="Sprite" parent="Inventory/Item6"]
+visible = false
+modulate = Color( 0.435294, 0.976471, 0.988235, 1 )
+position = Vector2( 30.5956, 31.5281 )
+scale = Vector2( 0.115721, 0.169303 )
+texture = ExtResource( 5 )
+
+[node name="Count" type="Label" parent="Inventory/Item6"]
+visible = false
+anchor_left = 0.5
+anchor_right = 0.5
+margin_left = 10.3765
+margin_top = 4.36536
+margin_right = 26.3765
+margin_bottom = 28.3654
+custom_fonts/font = SubResource( 5 )
 __meta__ = {
 "_edit_use_anchors_": false
 }
 
 [node name="Item7" type="Panel" parent="Inventory"]
 self_modulate = Color( 1, 1, 1, 0.529412 )
-material = SubResource( 7 )
-margin_left = 390.0
-margin_right = 451.0
+material = SubResource( 8 )
+margin_left = 393.0
+margin_right = 454.0
 margin_bottom = 64.0
 size_flags_horizontal = 3
 size_flags_vertical = 3
@@ -240,15 +343,55 @@ __meta__ = {
 "_edit_use_anchors_": false
 }
 
+[node name="glow-rock" type="Sprite" parent="Inventory/Item7"]
+visible = false
+modulate = Color( 0.435294, 0.976471, 0.988235, 1 )
+position = Vector2( 30.5956, 31.5281 )
+scale = Vector2( 0.115721, 0.169303 )
+texture = ExtResource( 5 )
+
+[node name="Count" type="Label" parent="Inventory/Item7"]
+visible = false
+anchor_left = 0.5
+anchor_right = 0.5
+margin_left = 10.3765
+margin_top = 4.36536
+margin_right = 26.3765
+margin_bottom = 28.3654
+custom_fonts/font = SubResource( 5 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
 [node name="Item8" type="Panel" parent="Inventory"]
 self_modulate = Color( 1, 1, 1, 0.529412 )
-material = SubResource( 7 )
-margin_left = 455.0
+material = SubResource( 8 )
+margin_left = 458.0
 margin_right = 520.0
 margin_bottom = 64.0
 size_flags_horizontal = 3
 size_flags_vertical = 3
 custom_styles/panel = SubResource( 4 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="glow-rock" type="Sprite" parent="Inventory/Item8"]
+visible = false
+modulate = Color( 0.435294, 0.976471, 0.988235, 1 )
+position = Vector2( 30.5956, 31.5281 )
+scale = Vector2( 0.115721, 0.169303 )
+texture = ExtResource( 5 )
+
+[node name="Count" type="Label" parent="Inventory/Item8"]
+visible = false
+anchor_left = 0.5
+anchor_right = 0.5
+margin_left = 10.3765
+margin_top = 4.36536
+margin_right = 26.3765
+margin_bottom = 28.3654
+custom_fonts/font = SubResource( 5 )
 __meta__ = {
 "_edit_use_anchors_": false
 }

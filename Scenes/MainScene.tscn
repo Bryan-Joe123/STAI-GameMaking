@@ -20,9 +20,6 @@ transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 250, 52.8751, 250 )
 
 [node name="HTerrain" type="Spatial" parent="."]
 script = ExtResource( 2 )
-ambient_wind = 0.0
-lod_scale = 2.0
-map_scale = Vector3( 1, 1, 1 )
 _terrain_data = ExtResource( 6 )
 chunk_size = 32
 collision_enabled = true
@@ -43,9 +40,6 @@ shader_params/u_colormap_opacity_per_texture = Plane( 1, 1, 1, 1 )
 [node name="Spatial" type="Spatial" parent="."]
 transform = Transform( 0.269752, 0, 0, 0, 0.269752, 0, 0, 0, 0.269752, 252.018, 50.1207, 243.78 )
 
-[node name="Rock1" parent="Spatial" instance=ExtResource( 7 )]
-transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 31.8854 )
-
 [node name="Rock2" parent="Spatial" instance=ExtResource( 7 )]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 3.74554 )
 
@@ -60,3 +54,117 @@ transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -9.37817, 0, -8.24884 )
 
 [node name="Rock6" parent="Spatial" instance=ExtResource( 7 )]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 5.84564, 0, 12.8611 )
+
+[node name="Rock7" parent="Spatial" instance=ExtResource( 7 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -11.3138, 0, 25.6891 )
+
+[node name="Rock8" parent="Spatial" instance=ExtResource( 7 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -11.3138, 0, 10.1857 )
+
+[node name="Rock11" parent="Spatial" instance=ExtResource( 7 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -42.0112, 0, 10.1857 )
+
+[node name="Rock9" parent="Spatial" instance=ExtResource( 7 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -1.19214, 0, 10.1857 )
+
+[node name="Rock10" parent="Spatial" instance=ExtResource( 7 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -1.19214, 0, 26.8227 )
+
+[node name="Rock12" parent="Spatial" instance=ExtResource( 7 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -8.76093, 0, 93.4861 )
+
+[node name="Rock13" parent="Spatial" instance=ExtResource( 7 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -8.76093, 0, 65.3463 )
+
+[node name="Rock14" parent="Spatial" instance=ExtResource( 7 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -26.7665, 0, 65.3463 )
+
+[node name="Rock15" parent="Spatial" instance=ExtResource( 7 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 3.57239, 0, 84.8016 )
+
+[node name="Rock16" parent="Spatial" instance=ExtResource( 7 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -18.139, 0, 53.3518 )
+
+[node name="Rock17" parent="Spatial" instance=ExtResource( 7 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -2.91528, 0, 74.4618 )
+
+[node name="Rock18" parent="Spatial" instance=ExtResource( 7 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -20.0747, 0, 87.2899 )
+
+[node name="Rock19" parent="Spatial" instance=ExtResource( 7 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -20.0747, 0, 71.7864 )
+
+[node name="Rock20" parent="Spatial" instance=ExtResource( 7 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -50.7722, 0, 71.7864 )
+
+[node name="Rock21" parent="Spatial" instance=ExtResource( 7 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -9.95306, 0, 71.7864 )
+
+[node name="Rock22" parent="Spatial" instance=ExtResource( 7 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -9.95306, 0, 88.4234 )
+
+[node name="Rock23" parent="Spatial" instance=ExtResource( 7 )]
+transform = Transform( 0.796498, -0.604641, 0, 0.577303, 0.760486, -0.297292, 0.179755, 0.236792, 0.954787, -99.3011, -20.8566, 0.566467 )
+
+[node name="Rock24" parent="Spatial" instance=ExtResource( 7 )]
+transform = Transform( 0.796498, -0.604641, 0, 0.577303, 0.760486, -0.297292, 0.179755, 0.236792, 0.954787, -99.3011, -12.4907, -26.3012 )
+
+[node name="Rock25" parent="Spatial" instance=ExtResource( 7 )]
+transform = Transform( 0.796498, -0.604641, 0, 0.577303, 0.760486, -0.297292, 0.179755, 0.236792, 0.954787, -113.643, -22.8855, -29.538 )
+
+[node name="Rock26" parent="Spatial" instance=ExtResource( 7 )]
+transform = Transform( 0.796498, -0.604641, 0, 0.577303, 0.760486, -0.297292, 0.179755, 0.236792, 0.954787, -89.4778, -11.1545, -5.50854 )
+
+[node name="Rock27" parent="Spatial" instance=ExtResource( 7 )]
+transform = Transform( 0.796498, -0.604641, 0, 0.577303, 0.760486, -0.297292, 0.179755, 0.236792, 0.954787, -106.771, -14.3389, -39.4394 )
+
+[node name="Rock28" parent="Spatial" instance=ExtResource( 7 )]
+transform = Transform( 0.796498, -0.604641, 0, 0.577303, 0.760486, -0.297292, 0.179755, 0.236792, 0.954787, -94.6451, -11.826, -16.5473 )
+
+[node name="Rock29" parent="Spatial" instance=ExtResource( 7 )]
+transform = Transform( 0.796498, -0.604641, 0, 0.577303, 0.760486, -0.297292, 0.179755, 0.236792, 0.954787, -108.313, -25.5458, -7.38348 )
+
+[node name="Rock30" parent="Spatial" instance=ExtResource( 7 )]
+transform = Transform( 0.796498, -0.604641, 0, 0.577303, 0.760486, -0.297292, 0.179755, 0.236792, 0.954787, -108.313, -20.9368, -22.1859 )
+
+[node name="Rock31" parent="Spatial" instance=ExtResource( 7 )]
+transform = Transform( 0.796498, -0.604641, 0, 0.577303, 0.760486, -0.297292, 0.179755, 0.236792, 0.954787, -132.763, -38.6585, -27.704 )
+
+[node name="Rock32" parent="Spatial" instance=ExtResource( 7 )]
+transform = Transform( 0.796498, -0.604641, 0, 0.577303, 0.760486, -0.297292, 0.179755, 0.236792, 0.954787, -100.251, -15.0935, -20.3666 )
+
+[node name="Rock33" parent="Spatial" instance=ExtResource( 7 )]
+transform = Transform( 0.796498, -0.604641, 0, 0.577303, 0.760486, -0.297292, 0.179755, 0.236792, 0.954787, -100.251, -20.0395, -4.48206 )
+
+[node name="Rock34" parent="Spatial" instance=ExtResource( 7 )]
+transform = Transform( 0.796498, -0.604641, 0, 0.577303, 0.760486, -0.297292, 0.179755, 0.236792, 0.954787, -106.279, -44.2276, 57.8068 )
+
+[node name="Rock35" parent="Spatial" instance=ExtResource( 7 )]
+transform = Transform( 0.796498, -0.604641, 0, 0.577303, 0.760486, -0.297292, 0.179755, 0.236792, 0.954787, -106.279, -35.8619, 30.9395 )
+
+[node name="Rock36" parent="Spatial" instance=ExtResource( 7 )]
+transform = Transform( 0.796498, -0.604641, 0, 0.577303, 0.760486, -0.297292, 0.179755, 0.236792, 0.954787, -120.621, -46.2565, 27.7032 )
+
+[node name="Rock37" parent="Spatial" instance=ExtResource( 7 )]
+transform = Transform( 0.796498, -0.604641, 0, 0.577303, 0.760486, -0.297292, 0.179755, 0.236792, 0.954787, -96.4559, -34.5257, 51.7319 )
+
+[node name="Rock38" parent="Spatial" instance=ExtResource( 7 )]
+transform = Transform( 0.796498, -0.604641, 0, 0.577303, 0.760486, -0.297292, 0.179755, 0.236792, 0.954787, -113.749, -37.7099, 17.8014 )
+
+[node name="Rock39" parent="Spatial" instance=ExtResource( 7 )]
+transform = Transform( 0.796498, -0.604641, 0, 0.577303, 0.760486, -0.297292, 0.179755, 0.236792, 0.954787, -101.623, -35.1971, 40.6934 )
+
+[node name="Rock40" parent="Spatial" instance=ExtResource( 7 )]
+transform = Transform( 0.796498, -0.604641, 0, 0.577303, 0.760486, -0.297292, 0.179755, 0.236792, 0.954787, -115.291, -48.9169, 49.8568 )
+
+[node name="Rock41" parent="Spatial" instance=ExtResource( 7 )]
+transform = Transform( 0.796498, -0.604641, 0, 0.577303, 0.760486, -0.297292, 0.179755, 0.236792, 0.954787, -115.291, -44.3079, 35.0546 )
+
+[node name="Rock42" parent="Spatial" instance=ExtResource( 7 )]
+transform = Transform( 0.796498, -0.604641, 0, 0.577303, 0.760486, -0.297292, 0.179755, 0.236792, 0.954787, -139.741, -62.0296, 29.5365 )
+
+[node name="Rock43" parent="Spatial" instance=ExtResource( 7 )]
+transform = Transform( 0.796498, -0.604641, 0, 0.577303, 0.760486, -0.297292, 0.179755, 0.236792, 0.954787, -107.229, -38.4646, 36.8739 )
+
+[node name="Rock44" parent="Spatial" instance=ExtResource( 7 )]
+transform = Transform( 0.796498, -0.604641, 0, 0.577303, 0.760486, -0.297292, 0.179755, 0.236792, 0.954787, -107.229, -43.4106, 52.7587 )
