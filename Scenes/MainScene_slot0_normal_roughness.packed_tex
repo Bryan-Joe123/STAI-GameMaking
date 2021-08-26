@@ -1,0 +1,8 @@
+{
+	"contains_albedo": false,
+	"resolution": 512,
+	"src": {
+		"a": "res://t_data/detail.png",
+		"rgb": "res://t_data/normal.png"
+	}
+}

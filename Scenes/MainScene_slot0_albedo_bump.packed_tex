@@ -1,0 +1,8 @@
+{
+	"contains_albedo": true,
+	"resolution": 512,
+	"src": {
+		"a": "res://t_data/splat.png",
+		"rgb": "res://t_data/color.png"
+	}
+}

@@ -1,33 +1,63 @@
-[gd_scene load_steps=14 format=2]
+[gd_scene load_steps=35 format=2]
 
 [ext_resource path="res://Font/SecularOne-Regular.ttf" type="DynamicFontData" id=1]
-[ext_resource path="res://Assets/Ui/CrossHair.png" type="Texture" id=2]
+[ext_resource path="res://Assets/2D/Inventory/copper.png" type="Texture" id=2]
 [ext_resource path="res://Assets/Ui/Inventory.png" type="Texture" id=3]
 [ext_resource path="res://Script/UI.gd" type="Script" id=4]
-[ext_resource path="res://Assets/2D/Inventory/glow-rock.png" type="Texture" id=5]
+[ext_resource path="res://Assets/2D/Inventory/steel.png" type="Texture" id=5]
+[ext_resource path="res://Assets/2D/Inventory/iron.png" type="Texture" id=6]
+[ext_resource path="res://Assets/Ui/Map.png" type="Texture" id=7]
+[ext_resource path="res://Assets/2D/Inventory/carbon.png" type="Texture" id=8]
+[ext_resource path="res://Assets/2D/Inventory/zinc.png" type="Texture" id=9]
+[ext_resource path="res://Assets/2D/Inventory/brass.png" type="Texture" id=10]
+[ext_resource path="res://Assets/2D/Inventory/bronze.png" type="Texture" id=11]
+[ext_resource path="res://Assets/2D/Inventory/magnalium.png" type="Texture" id=12]
+[ext_resource path="res://Assets/2D/Inventory/magnesium.png" type="Texture" id=13]
+[ext_resource path="res://Assets/2D/Inventory/Aluminum.png" type="Texture" id=14]
+[ext_resource path="res://Assets/2D/Inventory/tin.png" type="Texture" id=15]
 
 [sub_resource type="DynamicFont" id=1]
 size = 49
 font_data = ExtResource( 1 )
 
-[sub_resource type="StyleBoxFlat" id=2]
-bg_color = Color( 0.819608, 0.396078, 0.396078, 1 )
+[sub_resource type="AtlasTexture" id=2]
+flags = 23
+atlas = ExtResource( 7 )
+region = Rect2( 0, 0, 258, 87 )
 
-[sub_resource type="StyleBoxFlat" id=3]
-bg_color = Color( 0.545098, 0.545098, 0.545098, 0 )
+[sub_resource type="AtlasTexture" id=3]
+flags = 23
+atlas = ExtResource( 7 )
+region = Rect2( 273, -5, 232, 93 )
 
-[sub_resource type="StyleBoxTexture" id=4]
-texture = ExtResource( 3 )
-normal_map = ExtResource( 3 )
-region_rect = Rect2( 0, 0, 32, 32 )
+[sub_resource type="AtlasTexture" id=4]
+flags = 23
+atlas = ExtResource( 7 )
+region = Rect2( 7.87217, 95.0743, 89.0278, 89.9392 )
 
-[sub_resource type="DynamicFont" id=5]
+[sub_resource type="AtlasTexture" id=5]
+flags = 23
+atlas = ExtResource( 7 )
+region = Rect2( 118.65, 94.6264, 89.6202, 89.3642 )
+
+[sub_resource type="DynamicFont" id=6]
+size = 49
 font_data = ExtResource( 1 )
 
-[sub_resource type="VisualShaderNodeColorConstant" id=6]
+[sub_resource type="StyleBoxFlat" id=7]
+bg_color = Color( 0.819608, 0.396078, 0.396078, 1 )
+
+[sub_resource type="StyleBoxFlat" id=8]
+bg_color = Color( 0.545098, 0.545098, 0.545098, 0 )
+
+[sub_resource type="DynamicFont" id=9]
+size = 28
+font_data = ExtResource( 1 )
+
+[sub_resource type="VisualShaderNodeColorConstant" id=10]
 constant = Color( 0.546875, 0.546875, 0.546875, 1 )
 
-[sub_resource type="VisualShader" id=7]
+[sub_resource type="VisualShader" id=11]
 code = "shader_type spatial;
 render_mode specular_schlick_ggx;
 
@@ -55,12 +85,57 @@ void light() {
 }
 "
 graph_offset = Vector2( -131, 120 )
-nodes/fragment/2/node = SubResource( 6 )
+nodes/fragment/2/node = SubResource( 10 )
 nodes/fragment/2/position = Vector2( 200, 220 )
 nodes/fragment/connections = PoolIntArray( 2, 0, 0, 1 )
 
-[sub_resource type="ShaderMaterial" id=8]
-shader = SubResource( 7 )
+[sub_resource type="ShaderMaterial" id=12]
+shader = SubResource( 11 )
+
+[sub_resource type="StyleBoxTexture" id=13]
+texture = ExtResource( 3 )
+normal_map = ExtResource( 3 )
+region_rect = Rect2( 0, 0, 32, 32 )
+
+[sub_resource type="DynamicFont" id=14]
+font_data = ExtResource( 1 )
+
+[sub_resource type="StyleBoxFlat" id=15]
+bg_color = Color( 0, 0, 0, 0 )
+
+[sub_resource type="DynamicFont" id=16]
+size = 23
+font_data = ExtResource( 1 )
+
+[sub_resource type="DynamicFont" id=17]
+size = 17
+font_data = ExtResource( 1 )
+
+[sub_resource type="Animation" id=18]
+length = 0.3
+tracks/0/type = "bezier"
+tracks/0/path = NodePath("Control/ColorRect:rect_position:x")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"points": PoolRealArray( 0, -0.25, 0, 0.25, 0, 544, -0.25, 0, 0.25, 0 ),
+"times": PoolRealArray( 0, 0.3 )
+}
+
+[sub_resource type="Animation" id=19]
+length = 0.3
+tracks/0/type = "bezier"
+tracks/0/path = NodePath("Control/ColorRect:rect_position:x")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"points": PoolRealArray( 560, -0.25, 0, 0.25, 0, 0, -0.25, 0, 0.25, 0 ),
+"times": PoolRealArray( 0, 0.3 )
+}
 
 [node name="UI" type="Control"]
 anchor_right = 1.0
@@ -70,23 +145,66 @@ __meta__ = {
 "_edit_use_anchors_": false
 }
 
-[node name="CrossHair" type="Control" parent="."]
-anchor_left = 0.48
-anchor_top = 0.467
-anchor_right = 0.52
-anchor_bottom = 0.533
-margin_left = 0.47998
-margin_top = -0.200012
-margin_right = -0.480042
-margin_bottom = 0.199982
+[node name="Pointed" type="Label" parent="."]
+anchor_left = 0.5
+anchor_right = 0.5
+margin_left = -59.0
+margin_right = 59.0
+margin_bottom = 73.0
+custom_fonts/font = SubResource( 1 )
+align = 1
 __meta__ = {
 "_edit_use_anchors_": false
 }
 
-[node name="sprite" type="Sprite" parent="CrossHair"]
-position = Vector2( 20, 20 )
-scale = Vector2( 2.5, 2.5 )
-texture = ExtResource( 2 )
+[node name="Tut" type="Control" parent="."]
+anchor_left = 1.0
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+margin_left = -40.0
+margin_top = -40.0
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Pick" type="Sprite" parent="Tut"]
+visible = false
+position = Vector2( -52, 8 )
+scale = Vector2( 0.7, 0.7 )
+texture = SubResource( 2 )
+
+[node name="RMouse" type="Sprite" parent="Tut"]
+visible = false
+position = Vector2( 274, -68 )
+scale = Vector2( 0.7, 0.7 )
+texture = SubResource( 3 )
+offset = Vector2( -474.58, 25.0357 )
+
+[node name="CrossHair" type="Control" parent="."]
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+margin_left = -20.0
+margin_top = -20.0
+margin_right = 20.0
+margin_bottom = 20.0
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="RectCrossHair" type="Sprite" parent="CrossHair"]
+scale = Vector2( 0.449438, 0.449438 )
+texture = SubResource( 4 )
+centered = false
+
+[node name="CirCrossHair" type="Sprite" parent="CrossHair"]
+visible = false
+position = Vector2( 8, 8.00002 )
+scale = Vector2( 0.269663, 0.269663 )
+texture = SubResource( 5 )
+centered = false
 
 [node name="Oxygen" type="Control" parent="."]
 visible = false
@@ -103,7 +221,7 @@ margin_left = -52.0
 margin_top = -2.0
 margin_right = 9.0
 margin_bottom = 71.0
-custom_fonts/font = SubResource( 1 )
+custom_fonts/font = SubResource( 6 )
 text = "O2"
 __meta__ = {
 "_edit_use_anchors_": false
@@ -113,11 +231,27 @@ __meta__ = {
 anchor_left = 0.2
 anchor_right = 5.8
 anchor_bottom = 1.2
-custom_styles/fg = SubResource( 2 )
-custom_styles/bg = SubResource( 3 )
+custom_styles/fg = SubResource( 7 )
+custom_styles/bg = SubResource( 8 )
 step = 0.001
 value = 100.0
 percent_visible = false
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Selected" type="Label" parent="."]
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+margin_left = -58.0
+margin_top = -104.0
+margin_right = 58.0
+margin_bottom = -62.0
+custom_fonts/font = SubResource( 9 )
+align = 1
+valign = 1
 __meta__ = {
 "_edit_use_anchors_": false
 }
@@ -134,264 +268,816 @@ __meta__ = {
 "_edit_use_anchors_": false
 }
 
-[node name="Item1" type="Panel" parent="Inventory"]
-self_modulate = Color( 1, 1, 1, 0.529412 )
+[node name="Item0" type="Panel" parent="Inventory"]
+self_modulate = Color( 1, 1, 1, 0.235294 )
+material = SubResource( 12 )
 margin_right = 61.0
 margin_bottom = 64.0
 size_flags_horizontal = 3
 size_flags_vertical = 3
-custom_styles/panel = SubResource( 4 )
+custom_styles/panel = SubResource( 13 )
 __meta__ = {
 "_edit_use_anchors_": false
 }
 
-[node name="glow-rock" type="Sprite" parent="Inventory/Item1"]
+[node name="Count" type="Label" parent="Inventory/Item0"]
 visible = false
-modulate = Color( 0.435294, 0.976471, 0.988235, 1 )
-position = Vector2( 30.5956, 31.5281 )
-scale = Vector2( 0.115721, 0.169303 )
+anchor_left = 0.5
+anchor_right = 0.5
+margin_left = 11.7023
+margin_top = -1.46826
+margin_right = 27.7023
+margin_bottom = 22.5318
+custom_fonts/font = SubResource( 14 )
+text = "0"
+align = 2
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="iron" type="Sprite" parent="Inventory/Item0"]
+visible = false
+scale = Vector2( 0.251842, 0.251842 )
+texture = ExtResource( 6 )
+centered = false
+
+[node name="copper" type="Sprite" parent="Inventory/Item0"]
+visible = false
+position = Vector2( 32.0092, 31.1725 )
+scale = Vector2( 0.243933, 0.250009 )
+texture = ExtResource( 2 )
+
+[node name="steel" type="Sprite" parent="Inventory/Item0"]
+visible = false
+position = Vector2( 27.0536, 30.5215 )
+scale = Vector2( 0.212818, 0.212818 )
 texture = ExtResource( 5 )
+
+[node name="carbon" type="Sprite" parent="Inventory/Item0"]
+visible = false
+position = Vector2( 31.2432, 31.4691 )
+scale = Vector2( 0.249535, 0.249535 )
+texture = ExtResource( 8 )
+
+[node name="zinc" type="Sprite" parent="Inventory/Item0"]
+visible = false
+position = Vector2( 29.6915, 30.3115 )
+scale = Vector2( 0.194794, 0.194794 )
+texture = ExtResource( 9 )
+
+[node name="brass" type="Sprite" parent="Inventory/Item0"]
+visible = false
+position = Vector2( 31.0491, 31.1028 )
+scale = Vector2( 0.223745, 0.223745 )
+texture = ExtResource( 10 )
+
+[node name="bronze" type="Sprite" parent="Inventory/Item0"]
+visible = false
+position = Vector2( 30.3392, 31.7756 )
+scale = Vector2( 0.226023, 0.226023 )
+texture = ExtResource( 11 )
+
+[node name="magnesium" type="Sprite" parent="Inventory/Item0"]
+visible = false
+position = Vector2( 31.6094, 32.6464 )
+scale = Vector2( 0.222025, 0.222025 )
+texture = ExtResource( 13 )
+
+[node name="magnalium" type="Sprite" parent="Inventory/Item0"]
+visible = false
+position = Vector2( 30.1221, 31.0049 )
+scale = Vector2( 0.222025, 0.222025 )
+texture = ExtResource( 12 )
+
+[node name="tin" type="Sprite" parent="Inventory/Item0"]
+visible = false
+position = Vector2( 30.9564, 31.4559 )
+scale = Vector2( 0.213809, 0.213809 )
+texture = ExtResource( 15 )
+
+[node name="aluminum" type="Sprite" parent="Inventory/Item0"]
+visible = false
+position = Vector2( 29.092, 30.9615 )
+scale = Vector2( 0.213809, 0.213809 )
+texture = ExtResource( 14 )
+
+[node name="Item1" type="Panel" parent="Inventory"]
+self_modulate = Color( 1, 1, 1, 0.235294 )
+margin_left = 65.0
+margin_right = 127.0
+margin_bottom = 64.0
+rect_pivot_offset = Vector2( -113.441, 32 )
+size_flags_horizontal = 3
+size_flags_vertical = 3
+custom_styles/panel = SubResource( 13 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
 
 [node name="Count" type="Label" parent="Inventory/Item1"]
 visible = false
 anchor_left = 0.5
 anchor_right = 0.5
-margin_left = 10.3765
-margin_top = 4.36536
-margin_right = 26.3765
-margin_bottom = 28.3654
-custom_fonts/font = SubResource( 5 )
+margin_left = 11.7023
+margin_top = -1.46826
+margin_right = 27.7023
+margin_bottom = 22.5318
+custom_fonts/font = SubResource( 14 )
+text = "0"
+align = 2
 __meta__ = {
 "_edit_use_anchors_": false
 }
 
-[node name="Item2" type="Panel" parent="Inventory"]
-self_modulate = Color( 1, 1, 1, 0.529412 )
-material = SubResource( 8 )
-margin_left = 65.0
-margin_right = 127.0
-margin_bottom = 64.0
-size_flags_horizontal = 3
-size_flags_vertical = 3
-custom_styles/panel = SubResource( 4 )
-__meta__ = {
-"_edit_use_anchors_": false
-}
-
-[node name="glow-rock" type="Sprite" parent="Inventory/Item2"]
+[node name="iron" type="Sprite" parent="Inventory/Item1"]
 visible = false
-modulate = Color( 0.435294, 0.976471, 0.988235, 1 )
-position = Vector2( 30.5956, 31.5281 )
-scale = Vector2( 0.115721, 0.169303 )
+scale = Vector2( 0.251842, 0.251842 )
+texture = ExtResource( 6 )
+centered = false
+
+[node name="copper" type="Sprite" parent="Inventory/Item1"]
+visible = false
+position = Vector2( 32.0092, 31.1725 )
+scale = Vector2( 0.243933, 0.250009 )
+texture = ExtResource( 2 )
+
+[node name="steel" type="Sprite" parent="Inventory/Item1"]
+visible = false
+position = Vector2( 27.0536, 30.5215 )
+scale = Vector2( 0.212818, 0.212818 )
 texture = ExtResource( 5 )
 
-[node name="Count" type="Label" parent="Inventory/Item2"]
+[node name="carbon" type="Sprite" parent="Inventory/Item1"]
 visible = false
-anchor_left = 0.5
-anchor_right = 0.5
-margin_left = 10.3765
-margin_top = 4.36536
-margin_right = 26.3765
-margin_bottom = 28.3654
-custom_fonts/font = SubResource( 5 )
-__meta__ = {
-"_edit_use_anchors_": false
-}
+position = Vector2( 31.2432, 31.4691 )
+scale = Vector2( 0.249535, 0.249535 )
+texture = ExtResource( 8 )
 
-[node name="Item3" type="Panel" parent="Inventory"]
-self_modulate = Color( 1, 1, 1, 0.529412 )
-material = SubResource( 8 )
+[node name="zinc" type="Sprite" parent="Inventory/Item1"]
+visible = false
+position = Vector2( 29.6915, 30.3115 )
+scale = Vector2( 0.194794, 0.194794 )
+texture = ExtResource( 9 )
+
+[node name="brass" type="Sprite" parent="Inventory/Item1"]
+visible = false
+position = Vector2( 31.0491, 31.1028 )
+scale = Vector2( 0.223745, 0.223745 )
+texture = ExtResource( 10 )
+
+[node name="bronze" type="Sprite" parent="Inventory/Item1"]
+visible = false
+position = Vector2( 30.3392, 31.7756 )
+scale = Vector2( 0.226023, 0.226023 )
+texture = ExtResource( 11 )
+
+[node name="magnesium" type="Sprite" parent="Inventory/Item1"]
+visible = false
+position = Vector2( 31.6094, 32.6464 )
+scale = Vector2( 0.222025, 0.222025 )
+texture = ExtResource( 13 )
+
+[node name="magnalium" type="Sprite" parent="Inventory/Item1"]
+visible = false
+position = Vector2( 30.1221, 31.0049 )
+scale = Vector2( 0.222025, 0.222025 )
+texture = ExtResource( 12 )
+
+[node name="aluminum" type="Sprite" parent="Inventory/Item1"]
+visible = false
+position = Vector2( 29.092, 30.9615 )
+scale = Vector2( 0.213809, 0.213809 )
+texture = ExtResource( 14 )
+
+[node name="tin" type="Sprite" parent="Inventory/Item1"]
+visible = false
+position = Vector2( 30.9564, 31.4559 )
+scale = Vector2( 0.213809, 0.213809 )
+texture = ExtResource( 15 )
+
+[node name="Item2" type="Panel" parent="Inventory"]
+self_modulate = Color( 1, 1, 1, 0.235294 )
+material = SubResource( 12 )
 margin_left = 131.0
 margin_right = 192.0
 margin_bottom = 64.0
 size_flags_horizontal = 3
 size_flags_vertical = 3
-custom_styles/panel = SubResource( 4 )
+custom_styles/panel = SubResource( 13 )
 __meta__ = {
 "_edit_use_anchors_": false
 }
 
-[node name="glow-rock" type="Sprite" parent="Inventory/Item3"]
-visible = false
-modulate = Color( 0.435294, 0.976471, 0.988235, 1 )
-position = Vector2( 30.5956, 31.5281 )
-scale = Vector2( 0.115721, 0.169303 )
-texture = ExtResource( 5 )
-
-[node name="Count" type="Label" parent="Inventory/Item3"]
+[node name="Count" type="Label" parent="Inventory/Item2"]
 visible = false
 anchor_left = 0.5
 anchor_right = 0.5
-margin_left = 10.3765
-margin_top = 4.36536
-margin_right = 26.3765
-margin_bottom = 28.3654
-custom_fonts/font = SubResource( 5 )
+margin_left = 11.7023
+margin_top = -1.46826
+margin_right = 27.7023
+margin_bottom = 22.5318
+custom_fonts/font = SubResource( 14 )
+text = "0"
+align = 2
 __meta__ = {
 "_edit_use_anchors_": false
 }
 
-[node name="Item4" type="Panel" parent="Inventory"]
-self_modulate = Color( 1, 1, 1, 0.529412 )
-material = SubResource( 8 )
+[node name="iron" type="Sprite" parent="Inventory/Item2"]
+visible = false
+scale = Vector2( 0.251842, 0.251842 )
+texture = ExtResource( 6 )
+centered = false
+
+[node name="copper" type="Sprite" parent="Inventory/Item2"]
+visible = false
+position = Vector2( 32.0092, 31.1725 )
+scale = Vector2( 0.243933, 0.250009 )
+texture = ExtResource( 2 )
+
+[node name="steel" type="Sprite" parent="Inventory/Item2"]
+visible = false
+position = Vector2( 27.0536, 30.5215 )
+scale = Vector2( 0.212818, 0.212818 )
+texture = ExtResource( 5 )
+
+[node name="carbon" type="Sprite" parent="Inventory/Item2"]
+visible = false
+position = Vector2( 31.2432, 31.4691 )
+scale = Vector2( 0.249535, 0.249535 )
+texture = ExtResource( 8 )
+
+[node name="zinc" type="Sprite" parent="Inventory/Item2"]
+visible = false
+position = Vector2( 29.6915, 30.3115 )
+scale = Vector2( 0.194794, 0.194794 )
+texture = ExtResource( 9 )
+
+[node name="brass" type="Sprite" parent="Inventory/Item2"]
+visible = false
+position = Vector2( 31.0491, 31.1028 )
+scale = Vector2( 0.223745, 0.223745 )
+texture = ExtResource( 10 )
+
+[node name="bronze" type="Sprite" parent="Inventory/Item2"]
+visible = false
+position = Vector2( 30.3392, 31.7756 )
+scale = Vector2( 0.226023, 0.226023 )
+texture = ExtResource( 11 )
+
+[node name="magnesium" type="Sprite" parent="Inventory/Item2"]
+visible = false
+position = Vector2( 31.6094, 32.6464 )
+scale = Vector2( 0.222025, 0.222025 )
+texture = ExtResource( 13 )
+
+[node name="magnalium" type="Sprite" parent="Inventory/Item2"]
+visible = false
+position = Vector2( 30.1221, 31.0049 )
+scale = Vector2( 0.222025, 0.222025 )
+texture = ExtResource( 12 )
+
+[node name="aluminum" type="Sprite" parent="Inventory/Item2"]
+visible = false
+position = Vector2( 29.092, 30.9615 )
+scale = Vector2( 0.213809, 0.213809 )
+texture = ExtResource( 14 )
+
+[node name="tin" type="Sprite" parent="Inventory/Item2"]
+visible = false
+position = Vector2( 30.9564, 31.4559 )
+scale = Vector2( 0.213809, 0.213809 )
+texture = ExtResource( 15 )
+
+[node name="Item3" type="Panel" parent="Inventory"]
+self_modulate = Color( 1, 1, 1, 0.235294 )
+material = SubResource( 12 )
 margin_left = 196.0
 margin_right = 258.0
 margin_bottom = 64.0
 size_flags_horizontal = 3
 size_flags_vertical = 3
-custom_styles/panel = SubResource( 4 )
+custom_styles/panel = SubResource( 13 )
 __meta__ = {
 "_edit_use_anchors_": false
 }
 
-[node name="glow-rock" type="Sprite" parent="Inventory/Item4"]
-visible = false
-modulate = Color( 0.435294, 0.976471, 0.988235, 1 )
-position = Vector2( 30.5956, 31.5281 )
-scale = Vector2( 0.115721, 0.169303 )
-texture = ExtResource( 5 )
-
-[node name="Count" type="Label" parent="Inventory/Item4"]
+[node name="Count" type="Label" parent="Inventory/Item3"]
 visible = false
 anchor_left = 0.5
 anchor_right = 0.5
-margin_left = 10.3765
-margin_top = 4.36536
-margin_right = 26.3765
-margin_bottom = 28.3654
-custom_fonts/font = SubResource( 5 )
+margin_left = 11.7023
+margin_top = -1.46826
+margin_right = 27.7023
+margin_bottom = 22.5318
+custom_fonts/font = SubResource( 14 )
+text = "0"
+align = 2
 __meta__ = {
 "_edit_use_anchors_": false
 }
 
-[node name="Item5" type="Panel" parent="Inventory"]
-self_modulate = Color( 1, 1, 1, 0.529412 )
-material = SubResource( 8 )
+[node name="iron" type="Sprite" parent="Inventory/Item3"]
+visible = false
+scale = Vector2( 0.251842, 0.251842 )
+texture = ExtResource( 6 )
+centered = false
+
+[node name="copper" type="Sprite" parent="Inventory/Item3"]
+visible = false
+position = Vector2( 32.0092, 31.1725 )
+scale = Vector2( 0.243933, 0.250009 )
+texture = ExtResource( 2 )
+
+[node name="steel" type="Sprite" parent="Inventory/Item3"]
+visible = false
+position = Vector2( 27.0536, 30.5215 )
+scale = Vector2( 0.212818, 0.212818 )
+texture = ExtResource( 5 )
+
+[node name="carbon" type="Sprite" parent="Inventory/Item3"]
+visible = false
+position = Vector2( 31.2432, 31.4691 )
+scale = Vector2( 0.249535, 0.249535 )
+texture = ExtResource( 8 )
+
+[node name="zinc" type="Sprite" parent="Inventory/Item3"]
+visible = false
+position = Vector2( 29.6915, 30.3115 )
+scale = Vector2( 0.194794, 0.194794 )
+texture = ExtResource( 9 )
+
+[node name="brass" type="Sprite" parent="Inventory/Item3"]
+visible = false
+position = Vector2( 31.0491, 31.1028 )
+scale = Vector2( 0.223745, 0.223745 )
+texture = ExtResource( 10 )
+
+[node name="bronze" type="Sprite" parent="Inventory/Item3"]
+visible = false
+position = Vector2( 30.3392, 31.7756 )
+scale = Vector2( 0.226023, 0.226023 )
+texture = ExtResource( 11 )
+
+[node name="magnesium" type="Sprite" parent="Inventory/Item3"]
+visible = false
+position = Vector2( 31.6094, 32.6464 )
+scale = Vector2( 0.222025, 0.222025 )
+texture = ExtResource( 13 )
+
+[node name="magnalium" type="Sprite" parent="Inventory/Item3"]
+visible = false
+position = Vector2( 30.1221, 31.0049 )
+scale = Vector2( 0.222025, 0.222025 )
+texture = ExtResource( 12 )
+
+[node name="aluminum" type="Sprite" parent="Inventory/Item3"]
+visible = false
+position = Vector2( 29.092, 30.9615 )
+scale = Vector2( 0.213809, 0.213809 )
+texture = ExtResource( 14 )
+
+[node name="tin" type="Sprite" parent="Inventory/Item3"]
+visible = false
+position = Vector2( 30.9564, 31.4559 )
+scale = Vector2( 0.213809, 0.213809 )
+texture = ExtResource( 15 )
+
+[node name="Item4" type="Panel" parent="Inventory"]
+self_modulate = Color( 1, 1, 1, 0.235294 )
+material = SubResource( 12 )
 margin_left = 262.0
 margin_right = 323.0
 margin_bottom = 64.0
 size_flags_horizontal = 3
 size_flags_vertical = 3
-custom_styles/panel = SubResource( 4 )
+custom_styles/panel = SubResource( 13 )
 __meta__ = {
 "_edit_use_anchors_": false
 }
 
-[node name="glow-rock" type="Sprite" parent="Inventory/Item5"]
-visible = false
-modulate = Color( 0.435294, 0.976471, 0.988235, 1 )
-position = Vector2( 30.5956, 31.5281 )
-scale = Vector2( 0.115721, 0.169303 )
-texture = ExtResource( 5 )
-
-[node name="Count" type="Label" parent="Inventory/Item5"]
+[node name="Count" type="Label" parent="Inventory/Item4"]
 visible = false
 anchor_left = 0.5
 anchor_right = 0.5
-margin_left = 10.3765
-margin_top = 4.36536
-margin_right = 26.3765
-margin_bottom = 28.3654
-custom_fonts/font = SubResource( 5 )
+margin_left = 11.7023
+margin_top = -1.46826
+margin_right = 27.7023
+margin_bottom = 22.5318
+custom_fonts/font = SubResource( 14 )
+text = "0"
+align = 2
 __meta__ = {
 "_edit_use_anchors_": false
 }
 
-[node name="Item6" type="Panel" parent="Inventory"]
-self_modulate = Color( 1, 1, 1, 0.529412 )
-material = SubResource( 8 )
+[node name="iron" type="Sprite" parent="Inventory/Item4"]
+visible = false
+scale = Vector2( 0.251842, 0.251842 )
+texture = ExtResource( 6 )
+centered = false
+
+[node name="copper" type="Sprite" parent="Inventory/Item4"]
+visible = false
+position = Vector2( 32.0092, 31.1725 )
+scale = Vector2( 0.243933, 0.250009 )
+texture = ExtResource( 2 )
+
+[node name="steel" type="Sprite" parent="Inventory/Item4"]
+visible = false
+position = Vector2( 27.0536, 30.5215 )
+scale = Vector2( 0.212818, 0.212818 )
+texture = ExtResource( 5 )
+
+[node name="carbon" type="Sprite" parent="Inventory/Item4"]
+visible = false
+position = Vector2( 31.2432, 31.4691 )
+scale = Vector2( 0.249535, 0.249535 )
+texture = ExtResource( 8 )
+
+[node name="zinc" type="Sprite" parent="Inventory/Item4"]
+visible = false
+position = Vector2( 29.6915, 30.3115 )
+scale = Vector2( 0.194794, 0.194794 )
+texture = ExtResource( 9 )
+
+[node name="brass" type="Sprite" parent="Inventory/Item4"]
+visible = false
+position = Vector2( 31.0491, 31.1028 )
+scale = Vector2( 0.223745, 0.223745 )
+texture = ExtResource( 10 )
+
+[node name="bronze" type="Sprite" parent="Inventory/Item4"]
+visible = false
+position = Vector2( 30.3392, 31.7756 )
+scale = Vector2( 0.226023, 0.226023 )
+texture = ExtResource( 11 )
+
+[node name="magnesium" type="Sprite" parent="Inventory/Item4"]
+visible = false
+position = Vector2( 31.6094, 32.6464 )
+scale = Vector2( 0.222025, 0.222025 )
+texture = ExtResource( 13 )
+
+[node name="magnalium" type="Sprite" parent="Inventory/Item4"]
+visible = false
+position = Vector2( 30.1221, 31.0049 )
+scale = Vector2( 0.222025, 0.222025 )
+texture = ExtResource( 12 )
+
+[node name="aluminum" type="Sprite" parent="Inventory/Item4"]
+visible = false
+position = Vector2( 29.092, 30.9615 )
+scale = Vector2( 0.213809, 0.213809 )
+texture = ExtResource( 14 )
+
+[node name="tin" type="Sprite" parent="Inventory/Item4"]
+visible = false
+position = Vector2( 30.9564, 31.4559 )
+scale = Vector2( 0.213809, 0.213809 )
+texture = ExtResource( 15 )
+
+[node name="Item5" type="Panel" parent="Inventory"]
+self_modulate = Color( 1, 1, 1, 0.235294 )
+material = SubResource( 12 )
 margin_left = 327.0
 margin_right = 389.0
 margin_bottom = 64.0
 size_flags_horizontal = 3
 size_flags_vertical = 3
-custom_styles/panel = SubResource( 4 )
+custom_styles/panel = SubResource( 13 )
 __meta__ = {
 "_edit_use_anchors_": false
 }
 
-[node name="glow-rock" type="Sprite" parent="Inventory/Item6"]
-visible = false
-modulate = Color( 0.435294, 0.976471, 0.988235, 1 )
-position = Vector2( 30.5956, 31.5281 )
-scale = Vector2( 0.115721, 0.169303 )
-texture = ExtResource( 5 )
-
-[node name="Count" type="Label" parent="Inventory/Item6"]
+[node name="Count" type="Label" parent="Inventory/Item5"]
 visible = false
 anchor_left = 0.5
 anchor_right = 0.5
-margin_left = 10.3765
-margin_top = 4.36536
-margin_right = 26.3765
-margin_bottom = 28.3654
-custom_fonts/font = SubResource( 5 )
+margin_left = 11.7023
+margin_top = -1.46826
+margin_right = 27.7023
+margin_bottom = 22.5318
+custom_fonts/font = SubResource( 14 )
+text = "0"
+align = 2
 __meta__ = {
 "_edit_use_anchors_": false
 }
 
-[node name="Item7" type="Panel" parent="Inventory"]
-self_modulate = Color( 1, 1, 1, 0.529412 )
-material = SubResource( 8 )
+[node name="iron" type="Sprite" parent="Inventory/Item5"]
+visible = false
+scale = Vector2( 0.251842, 0.251842 )
+texture = ExtResource( 6 )
+centered = false
+
+[node name="copper" type="Sprite" parent="Inventory/Item5"]
+visible = false
+position = Vector2( 32.0092, 31.1725 )
+scale = Vector2( 0.243933, 0.250009 )
+texture = ExtResource( 2 )
+
+[node name="steel" type="Sprite" parent="Inventory/Item5"]
+visible = false
+position = Vector2( 27.0536, 30.5215 )
+scale = Vector2( 0.212818, 0.212818 )
+texture = ExtResource( 5 )
+
+[node name="carbon" type="Sprite" parent="Inventory/Item5"]
+visible = false
+position = Vector2( 31.2432, 31.4691 )
+scale = Vector2( 0.249535, 0.249535 )
+texture = ExtResource( 8 )
+
+[node name="zinc" type="Sprite" parent="Inventory/Item5"]
+visible = false
+position = Vector2( 29.6915, 30.3115 )
+scale = Vector2( 0.194794, 0.194794 )
+texture = ExtResource( 9 )
+
+[node name="brass" type="Sprite" parent="Inventory/Item5"]
+visible = false
+position = Vector2( 31.0491, 31.1028 )
+scale = Vector2( 0.223745, 0.223745 )
+texture = ExtResource( 10 )
+
+[node name="bronze" type="Sprite" parent="Inventory/Item5"]
+visible = false
+position = Vector2( 30.3392, 31.7756 )
+scale = Vector2( 0.226023, 0.226023 )
+texture = ExtResource( 11 )
+
+[node name="magnesium" type="Sprite" parent="Inventory/Item5"]
+visible = false
+position = Vector2( 31.6094, 32.6464 )
+scale = Vector2( 0.222025, 0.222025 )
+texture = ExtResource( 13 )
+
+[node name="magnalium" type="Sprite" parent="Inventory/Item5"]
+visible = false
+position = Vector2( 30.1221, 31.0049 )
+scale = Vector2( 0.222025, 0.222025 )
+texture = ExtResource( 12 )
+
+[node name="aluminum" type="Sprite" parent="Inventory/Item5"]
+visible = false
+position = Vector2( 29.092, 30.9615 )
+scale = Vector2( 0.213809, 0.213809 )
+texture = ExtResource( 14 )
+
+[node name="tin" type="Sprite" parent="Inventory/Item5"]
+visible = false
+position = Vector2( 30.9564, 31.4559 )
+scale = Vector2( 0.213809, 0.213809 )
+texture = ExtResource( 15 )
+
+[node name="Item6" type="Panel" parent="Inventory"]
+self_modulate = Color( 1, 1, 1, 0.235294 )
+material = SubResource( 12 )
 margin_left = 393.0
 margin_right = 454.0
 margin_bottom = 64.0
 size_flags_horizontal = 3
 size_flags_vertical = 3
-custom_styles/panel = SubResource( 4 )
+custom_styles/panel = SubResource( 13 )
 __meta__ = {
 "_edit_use_anchors_": false
 }
 
-[node name="glow-rock" type="Sprite" parent="Inventory/Item7"]
-visible = false
-modulate = Color( 0.435294, 0.976471, 0.988235, 1 )
-position = Vector2( 30.5956, 31.5281 )
-scale = Vector2( 0.115721, 0.169303 )
-texture = ExtResource( 5 )
-
-[node name="Count" type="Label" parent="Inventory/Item7"]
+[node name="Count" type="Label" parent="Inventory/Item6"]
 visible = false
 anchor_left = 0.5
 anchor_right = 0.5
-margin_left = 10.3765
-margin_top = 4.36536
-margin_right = 26.3765
-margin_bottom = 28.3654
-custom_fonts/font = SubResource( 5 )
+margin_left = 11.7023
+margin_top = -1.46826
+margin_right = 27.7023
+margin_bottom = 22.5318
+custom_fonts/font = SubResource( 14 )
+text = "0"
+align = 2
 __meta__ = {
 "_edit_use_anchors_": false
 }
 
-[node name="Item8" type="Panel" parent="Inventory"]
-self_modulate = Color( 1, 1, 1, 0.529412 )
-material = SubResource( 8 )
+[node name="iron" type="Sprite" parent="Inventory/Item6"]
+visible = false
+scale = Vector2( 0.251842, 0.251842 )
+texture = ExtResource( 6 )
+centered = false
+
+[node name="copper" type="Sprite" parent="Inventory/Item6"]
+visible = false
+position = Vector2( 32.0092, 31.1725 )
+scale = Vector2( 0.243933, 0.250009 )
+texture = ExtResource( 2 )
+
+[node name="steel" type="Sprite" parent="Inventory/Item6"]
+visible = false
+position = Vector2( 27.0536, 30.5215 )
+scale = Vector2( 0.212818, 0.212818 )
+texture = ExtResource( 5 )
+
+[node name="carbon" type="Sprite" parent="Inventory/Item6"]
+visible = false
+position = Vector2( 31.2432, 31.4691 )
+scale = Vector2( 0.249535, 0.249535 )
+texture = ExtResource( 8 )
+
+[node name="zinc" type="Sprite" parent="Inventory/Item6"]
+visible = false
+position = Vector2( 29.6915, 30.3115 )
+scale = Vector2( 0.194794, 0.194794 )
+texture = ExtResource( 9 )
+
+[node name="brass" type="Sprite" parent="Inventory/Item6"]
+visible = false
+position = Vector2( 31.0491, 31.1028 )
+scale = Vector2( 0.223745, 0.223745 )
+texture = ExtResource( 10 )
+
+[node name="bronze" type="Sprite" parent="Inventory/Item6"]
+visible = false
+position = Vector2( 30.3392, 31.7756 )
+scale = Vector2( 0.226023, 0.226023 )
+texture = ExtResource( 11 )
+
+[node name="magnesium" type="Sprite" parent="Inventory/Item6"]
+visible = false
+position = Vector2( 31.6094, 32.6464 )
+scale = Vector2( 0.222025, 0.222025 )
+texture = ExtResource( 13 )
+
+[node name="magnalium" type="Sprite" parent="Inventory/Item6"]
+visible = false
+position = Vector2( 30.1221, 31.0049 )
+scale = Vector2( 0.222025, 0.222025 )
+texture = ExtResource( 12 )
+
+[node name="aluminum" type="Sprite" parent="Inventory/Item6"]
+visible = false
+position = Vector2( 29.092, 30.9615 )
+scale = Vector2( 0.213809, 0.213809 )
+texture = ExtResource( 14 )
+
+[node name="tin" type="Sprite" parent="Inventory/Item6"]
+visible = false
+position = Vector2( 30.9564, 31.4559 )
+scale = Vector2( 0.213809, 0.213809 )
+texture = ExtResource( 15 )
+
+[node name="Item7" type="Panel" parent="Inventory"]
+self_modulate = Color( 1, 1, 1, 0.235294 )
+material = SubResource( 12 )
 margin_left = 458.0
 margin_right = 520.0
 margin_bottom = 64.0
 size_flags_horizontal = 3
 size_flags_vertical = 3
-custom_styles/panel = SubResource( 4 )
+custom_styles/panel = SubResource( 13 )
 __meta__ = {
 "_edit_use_anchors_": false
 }
 
-[node name="glow-rock" type="Sprite" parent="Inventory/Item8"]
-visible = false
-modulate = Color( 0.435294, 0.976471, 0.988235, 1 )
-position = Vector2( 30.5956, 31.5281 )
-scale = Vector2( 0.115721, 0.169303 )
-texture = ExtResource( 5 )
-
-[node name="Count" type="Label" parent="Inventory/Item8"]
+[node name="Count" type="Label" parent="Inventory/Item7"]
 visible = false
 anchor_left = 0.5
 anchor_right = 0.5
-margin_left = 10.3765
-margin_top = 4.36536
-margin_right = 26.3765
-margin_bottom = 28.3654
-custom_fonts/font = SubResource( 5 )
+margin_left = 11.7023
+margin_top = -1.46826
+margin_right = 27.7023
+margin_bottom = 22.5318
+custom_fonts/font = SubResource( 14 )
+text = "0"
+align = 2
 __meta__ = {
 "_edit_use_anchors_": false
 }
+
+[node name="iron" type="Sprite" parent="Inventory/Item7"]
+visible = false
+scale = Vector2( 0.251842, 0.251842 )
+texture = ExtResource( 6 )
+centered = false
+
+[node name="copper" type="Sprite" parent="Inventory/Item7"]
+visible = false
+position = Vector2( 32.0092, 31.1725 )
+scale = Vector2( 0.243933, 0.250009 )
+texture = ExtResource( 2 )
+
+[node name="steel" type="Sprite" parent="Inventory/Item7"]
+visible = false
+position = Vector2( 27.0536, 30.5215 )
+scale = Vector2( 0.212818, 0.212818 )
+texture = ExtResource( 5 )
+
+[node name="carbon" type="Sprite" parent="Inventory/Item7"]
+visible = false
+position = Vector2( 31.2432, 31.4691 )
+scale = Vector2( 0.249535, 0.249535 )
+texture = ExtResource( 8 )
+
+[node name="zinc" type="Sprite" parent="Inventory/Item7"]
+visible = false
+position = Vector2( 29.6915, 30.3115 )
+scale = Vector2( 0.194794, 0.194794 )
+texture = ExtResource( 9 )
+
+[node name="brass" type="Sprite" parent="Inventory/Item7"]
+visible = false
+position = Vector2( 31.0491, 31.1028 )
+scale = Vector2( 0.223745, 0.223745 )
+texture = ExtResource( 10 )
+
+[node name="bronze" type="Sprite" parent="Inventory/Item7"]
+visible = false
+position = Vector2( 30.3392, 31.7756 )
+scale = Vector2( 0.226023, 0.226023 )
+texture = ExtResource( 11 )
+
+[node name="magnesium" type="Sprite" parent="Inventory/Item7"]
+visible = false
+position = Vector2( 31.6094, 32.6464 )
+scale = Vector2( 0.222025, 0.222025 )
+texture = ExtResource( 13 )
+
+[node name="magnalium" type="Sprite" parent="Inventory/Item7"]
+visible = false
+position = Vector2( 30.1221, 31.0049 )
+scale = Vector2( 0.222025, 0.222025 )
+texture = ExtResource( 12 )
+
+[node name="aluminum" type="Sprite" parent="Inventory/Item7"]
+visible = false
+position = Vector2( 29.092, 30.9615 )
+scale = Vector2( 0.213809, 0.213809 )
+texture = ExtResource( 14 )
+
+[node name="tin" type="Sprite" parent="Inventory/Item7"]
+visible = false
+position = Vector2( 30.9564, 31.4559 )
+scale = Vector2( 0.213809, 0.213809 )
+texture = ExtResource( 15 )
+
+[node name="TextEdit" type="Label" parent="."]
+anchor_left = 0.00984316
+anchor_top = 0.00419973
+anchor_right = 0.332109
+anchor_bottom = 0.687533
+custom_styles/normal = SubResource( 15 )
+custom_fonts/font = SubResource( 16 )
+custom_colors/font_color = Color( 1, 1, 1, 1 )
+text = "Requirements:"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Help" type="Control" parent="."]
+margin_right = 40.0
+margin_bottom = 40.0
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Control" type="Control" parent="."]
+anchor_left = 0.726563
+anchor_top = 0.0266667
+anchor_right = 0.985352
+anchor_bottom = 0.346667
+__meta__ = {
+"_edit_use_anchors_": true
+}
+
+[node name="ColorRect" type="ColorRect" parent="Control"]
+anchor_left = 4.48679
+anchor_top = -1.09275e-07
+anchor_right = 5.48679
+anchor_bottom = 1.0
+margin_left = -799.999
+margin_right = -799.999
+color = Color( 0.0941176, 0.0941176, 0.0941176, 0.811765 )
+__meta__ = {
+"_edit_group_": true,
+"_edit_use_anchors_": true
+}
+
+[node name="Label" type="Label" parent="Control/ColorRect"]
+anchor_left = 0.0301887
+anchor_top = 0.0416666
+anchor_right = 0.966038
+anchor_bottom = 1.08333
+custom_fonts/font = SubResource( 17 )
+text = "Bronze (CuSn) = Cu + Sn
+Steel (FeC) = Fe + C
+Magnalium (MgAl) = Mg + Al
+Brass(CuZn) = Cu + Zn
+Aluminum (Al)
+Copper (Cu)
+"
+__meta__ = {
+"_edit_use_anchors_": true
+}
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+anims/Close = SubResource( 18 )
+anims/Open = SubResource( 19 )

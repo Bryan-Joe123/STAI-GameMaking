@@ -1,0 +1,342 @@
+[gd_scene load_steps=12 format=2]
+
+[ext_resource path="res://Models/MushRoom.tscn" type="PackedScene" id=1]
+[ext_resource path="res://Models/Material.tscn" type="PackedScene" id=2]
+[ext_resource path="res://Assets/2D/Grass.png" type="Texture" id=3]
+[ext_resource path="res://t_data/data.hterrain" type="Resource" id=4]
+[ext_resource path="res://addons/zylann.hterrain/hterrain_detail_layer.gd" type="Script" id=5]
+[ext_resource path="res://addons/zylann.hterrain/hterrain.gd" type="Script" id=6]
+[ext_resource path="res://addons/zylann.hterrain/hterrain_texture_set.gd" type="Script" id=7]
+[ext_resource path="res://addons/zylann.scatter/scatter3d.gd" type="Script" id=8]
+[ext_resource path="res://Models/MushroomShiitake.jpg" type="Texture" id=10]
+
+[sub_resource type="Resource" id=1]
+script = ExtResource( 7 )
+mode = 0
+textures = [ [  ], [  ] ]
+
+[sub_resource type="SpatialMaterial" id=2]
+albedo_texture = ExtResource( 10 )
+
+[node name="Terrain" type="Spatial"]
+
+[node name="HTerrain" type="Spatial" parent="."]
+script = ExtResource( 6 )
+_terrain_data = ExtResource( 4 )
+chunk_size = 32
+collision_enabled = true
+collision_layer = 1
+collision_mask = 1
+shader_type = "Classic4Lite"
+custom_shader = null
+custom_globalmap_shader = null
+texture_set = SubResource( 1 )
+shader_params/u_ground_uv_scale = 20
+shader_params/u_depth_blending = true
+shader_params/u_triplanar = false
+shader_params/u_tile_reduction = Plane( 0, 0, 0, 0 )
+
+[node name="HTerrainDetailLayer" type="Spatial" parent="HTerrain"]
+script = ExtResource( 5 )
+texture = ExtResource( 3 )
+view_distance = 103.796
+density = 10.0
+shader_params/u_globalmap_tint_bottom = null
+shader_params/u_globalmap_tint_top = null
+shader_params/u_bottom_ao = null
+shader_params/u_instance_scale = Vector3( 1, 1, 1 )
+
+[node name="HTerrainDetailLayer2" type="Spatial" parent="HTerrain"]
+script = ExtResource( 5 )
+texture = ExtResource( 3 )
+view_distance = 103.796
+density = 10.0
+shader_params/u_globalmap_tint_bottom = null
+shader_params/u_globalmap_tint_top = null
+shader_params/u_bottom_ao = null
+shader_params/u_instance_scale = Vector3( 1, 1, 1 )
+
+[node name="HTerrainDetailLayer3" type="Spatial" parent="HTerrain"]
+script = ExtResource( 5 )
+texture = ExtResource( 3 )
+view_distance = 103.796
+density = 10.0
+shader_params/u_globalmap_tint_bottom = null
+shader_params/u_globalmap_tint_top = null
+shader_params/u_bottom_ao = null
+shader_params/u_instance_scale = Vector3( 1, 1, 1 )
+
+[node name="Scatter3D" type="Spatial" parent="HTerrain"]
+script = ExtResource( 8 )
+_scenes = [ ExtResource( 2 ), ExtResource( 1 ) ]
+
+[node name="Material" parent="HTerrain/Scatter3D" instance=ExtResource( 2 )]
+transform = Transform( 0.984996, -1.50872e-08, -0.172578, -3.82137e-15, -1, 8.74228e-08, -0.172578, -8.61111e-08, -0.984996, 184.889, 17.4099, 205.646 )
+
+[node name="Material2" parent="HTerrain/Scatter3D" instance=ExtResource( 2 )]
+transform = Transform( -0.657598, -6.58616e-08, -0.753369, -3.82137e-15, -1, 8.74228e-08, -0.753369, 5.74891e-08, 0.657598, 204.451, 31.4007, 241.431 )
+
+[node name="Material3" parent="HTerrain/Scatter3D" instance=ExtResource( 2 )]
+transform = Transform( -0.567127, -7.20041e-08, -0.82363, -3.82137e-15, -1, 8.74228e-08, -0.82363, 4.95798e-08, 0.567127, 276.975, 72.5266, 206.6 )
+
+[node name="Material4" parent="HTerrain/Scatter3D" instance=ExtResource( 2 )]
+transform = Transform( -0.996485, -7.32363e-09, -0.0837726, -3.82137e-15, -1, 8.74228e-08, -0.0837726, 8.71155e-08, 0.996485, 264.569, 52.5389, 170.816 )
+
+[node name="Material5" parent="HTerrain/Scatter3D" instance=ExtResource( 2 )]
+transform = Transform( -0.998951, -4.0031e-09, -0.0457902, -3.82137e-15, -1, 8.74228e-08, -0.0457902, 8.73311e-08, 0.998951, 213.224, 32.4957, 122.596 )
+
+[node name="Material6" parent="HTerrain/Scatter3D" instance=ExtResource( 2 )]
+transform = Transform( 0.932501, 3.15743e-08, 0.361168, -3.82137e-15, -1, 8.74228e-08, 0.361168, -8.15218e-08, -0.932501, 181.257, 28.6986, 78.6997 )
+
+[node name="Material7" parent="HTerrain/Scatter3D" instance=ExtResource( 2 )]
+transform = Transform( -0.984614, -1.52764e-08, -0.174742, -3.82137e-15, -1, 8.74228e-08, -0.174742, 8.60777e-08, 0.984614, 129.727, 13.3744, 49.1178 )
+
+[node name="Material8" parent="HTerrain/Scatter3D" instance=ExtResource( 2 )]
+transform = Transform( 0.901545, -3.78267e-08, -0.432686, -3.82137e-15, -1, 8.74228e-08, -0.432686, -7.88155e-08, -0.901545, 75.1562, 35.263, 62.0291 )
+
+[node name="Material9" parent="HTerrain/Scatter3D" instance=ExtResource( 2 )]
+transform = Transform( 0.921487, -3.39559e-08, -0.38841, -3.82137e-15, -1, 8.74228e-08, -0.38841, -8.05589e-08, -0.921487, 41.6807, 45.7801, 80.1514 )
+
+[node name="Material10" parent="HTerrain/Scatter3D" instance=ExtResource( 2 )]
+transform = Transform( -0.998645, -4.5497e-09, -0.0520426, -3.82137e-15, -1, 8.74228e-08, -0.0520426, 8.73043e-08, 0.998645, 45.9738, 23.8104, 150.289 )
+
+[node name="Material11" parent="HTerrain/Scatter3D" instance=ExtResource( 2 )]
+transform = Transform( 0.976737, -1.87471e-08, -0.214441, -3.82137e-15, -1, 8.74228e-08, -0.214441, -8.53891e-08, -0.976737, 89.1341, 14.4463, 249.991 )
+
+[node name="Material12" parent="HTerrain/Scatter3D" instance=ExtResource( 2 )]
+transform = Transform( 0.489323, -7.62417e-08, -0.872103, -3.82137e-15, -1, 8.74228e-08, -0.872103, -4.2778e-08, -0.489323, 56.3844, 37.296, 286.849 )
+
+[node name="Material13" parent="HTerrain/Scatter3D" instance=ExtResource( 2 )]
+transform = Transform( 0.284364, 8.38137e-08, 0.958716, -3.82137e-15, -1, 8.74228e-08, 0.958716, -2.48599e-08, -0.284364, 100.73, 55.0506, 351.901 )
+
+[node name="Material14" parent="HTerrain/Scatter3D" instance=ExtResource( 2 )]
+transform = Transform( -0.19006, 8.58293e-08, 0.981772, -3.82137e-15, -1, 8.74228e-08, 0.981772, 1.66156e-08, 0.19006, 53.971, 52.6813, 374.326 )
+
+[node name="Material15" parent="HTerrain/Scatter3D" instance=ExtResource( 2 )]
+transform = Transform( 0.119049, 8.68011e-08, 0.992888, -3.82137e-15, -1, 8.74228e-08, 0.992888, -1.04076e-08, -0.119049, 164.665, 47.9249, 316.116 )
+
+[node name="Material16" parent="HTerrain/Scatter3D" instance=ExtResource( 2 )]
+transform = Transform( 0.595207, -7.02505e-08, -0.803572, -3.82137e-15, -1, 8.74228e-08, -0.803572, -5.20347e-08, -0.595207, 179.984, 66.9192, 354.821 )
+
+[node name="Material17" parent="HTerrain/Scatter3D" instance=ExtResource( 2 )]
+transform = Transform( -0.853502, -4.55551e-08, -0.52109, -3.82137e-15, -1, 8.74228e-08, -0.52109, 7.46155e-08, 0.853502, 124.734, 84.601, 392.753 )
+
+[node name="Material18" parent="HTerrain/Scatter3D" instance=ExtResource( 2 )]
+transform = Transform( 0.53381, -7.39251e-08, -0.845605, -3.82137e-15, -1, 8.74228e-08, -0.845605, -4.66671e-08, -0.53381, 72.2503, 26.9582, 450.486 )
+
+[node name="Material19" parent="HTerrain/Scatter3D" instance=ExtResource( 2 )]
+transform = Transform( 0.332289, -8.24552e-08, -0.943178, -3.82137e-15, -1, 8.74228e-08, -0.943178, -2.90496e-08, -0.332289, 128.074, 49.8952, 474.819 )
+
+[node name="Material20" parent="HTerrain/Scatter3D" instance=ExtResource( 2 )]
+transform = Transform( -0.903566, 3.74563e-08, 0.42845, -3.82137e-15, -1, 8.74228e-08, 0.42845, 7.89922e-08, 0.903566, 158.611, 55.1102, 454.78 )
+
+[node name="Material21" parent="HTerrain/Scatter3D" instance=ExtResource( 2 )]
+transform = Transform( -0.670301, -6.48755e-08, -0.742089, -3.82137e-15, -1, 8.74228e-08, -0.742089, 5.85996e-08, 0.670301, 159.565, 55.8475, 453.348 )
+
+[node name="Material22" parent="HTerrain/Scatter3D" instance=ExtResource( 2 )]
+transform = Transform( -0.964959, -2.29399e-08, -0.262402, -3.82137e-15, -1, 8.74228e-08, -0.262402, 8.43594e-08, 0.964959, 239.245, 53.0428, 402.296 )
+
+[node name="Material23" parent="HTerrain/Scatter3D" instance=ExtResource( 2 )]
+transform = Transform( 0.694725, -6.2881e-08, -0.719275, -3.82137e-15, -1, 8.74228e-08, -0.719275, -6.07348e-08, -0.694725, 293.235, 27.6533, 481.912 )
+
+[node name="Material24" parent="HTerrain/Scatter3D" instance=ExtResource( 2 )]
+transform = Transform( 0.2153, 8.53726e-08, 0.976548, -3.82137e-15, -1, 8.74228e-08, 0.976548, -1.88221e-08, -0.2153, 333.959, 13.7885, 442.344 )
+
+[node name="Material25" parent="HTerrain/Scatter3D" instance=ExtResource( 2 )]
+transform = Transform( 0.00798251, 8.742e-08, 0.999968, -3.82137e-15, -1, 8.74228e-08, 0.999968, -6.97858e-10, -0.00798251, 334.923, 23.0716, 398.927 )
+
+[node name="Material26" parent="HTerrain/Scatter3D" instance=ExtResource( 2 )]
+transform = Transform( -0.0434663, -8.73402e-08, -0.999055, -3.82137e-15, -1, 8.74228e-08, -0.999055, 3.79995e-09, 0.0434663, 287.21, 42.2713, 363.619 )
+
+[node name="Material27" parent="HTerrain/Scatter3D" instance=ExtResource( 2 )]
+transform = Transform( 0.350987, 8.1861e-08, 0.936381, -3.82137e-15, -1, 8.74228e-08, 0.936381, -3.06842e-08, -0.350987, 258.099, 55.0472, 331.154 )
+
+[node name="Material28" parent="HTerrain/Scatter3D" instance=ExtResource( 2 )]
+transform = Transform( -0.971753, -2.0632e-08, -0.236002, -3.82137e-15, -1, 8.74228e-08, -0.236002, 8.49533e-08, 0.971753, 226.131, 36.6391, 276.759 )
+
+[node name="Material29" parent="HTerrain/Scatter3D" instance=ExtResource( 2 )]
+transform = Transform( 0.914564, -3.53574e-08, -0.404441, -3.82137e-15, -1, 8.74228e-08, -0.404441, -7.99537e-08, -0.914564, 284.817, 74.4249, 261.968 )
+
+[node name="Material30" parent="HTerrain/Scatter3D" instance=ExtResource( 2 )]
+transform = Transform( 0.999952, -8.57139e-10, -0.00980448, -3.82137e-15, -1, 8.74228e-08, -0.00980448, -8.74186e-08, -0.999952, 334.916, 87.9819, 315.883 )
+
+[node name="Material31" parent="HTerrain/Scatter3D" instance=ExtResource( 2 )]
+transform = Transform( 0.935547, 3.08778e-08, 0.353201, -3.82137e-15, -1, 8.74228e-08, 0.353201, -8.17882e-08, -0.935547, 433.507, 50.5517, 395.019 )
+
+[node name="Material32" parent="HTerrain/Scatter3D" instance=ExtResource( 2 )]
+transform = Transform( -0.071899, 8.71965e-08, 0.997412, -3.82137e-15, -1, 8.74228e-08, 0.997412, 6.2856e-09, 0.071899, 391.583, 21.4038, 426.05 )
+
+[node name="Material33" parent="HTerrain/Scatter3D" instance=ExtResource( 2 )]
+transform = Transform( -0.3312, 8.24887e-08, 0.94356, -3.82137e-15, -1, 8.74228e-08, 0.94356, 2.89545e-08, 0.3312, 398.74, 63.0414, 359.729 )
+
+[node name="Material34" parent="HTerrain/Scatter3D" instance=ExtResource( 2 )]
+transform = Transform( -0.263435, -8.43348e-08, -0.964677, -3.82137e-15, -1, 8.74228e-08, -0.964677, 2.30302e-08, 0.263435, 487.486, 72.5159, 337.781 )
+
+[node name="Material35" parent="HTerrain/Scatter3D" instance=ExtResource( 2 )]
+transform = Transform( -0.157446, 8.63324e-08, 0.987528, -3.82137e-15, -1, 8.74228e-08, 0.987528, 1.37644e-08, 0.157446, 448.7, 34.2787, 482.442 )
+
+[node name="Material36" parent="HTerrain/Scatter3D" instance=ExtResource( 2 )]
+transform = Transform( -0.221816, -8.5245e-08, -0.975089, -3.82137e-15, -1, 8.74228e-08, -0.975089, 1.93917e-08, 0.221816, 481.622, 49.3419, 454.768 )
+
+[node name="Material37" parent="HTerrain/Scatter3D" instance=ExtResource( 2 )]
+transform = Transform( 0.953927, 2.62303e-08, 0.30004, -3.82137e-15, -1, 8.74228e-08, 0.30004, -8.33949e-08, -0.953927, 460.882, 79.4706, 328.382 )
+
+[node name="Material38" parent="HTerrain/Scatter3D" instance=ExtResource( 2 )]
+transform = Transform( 0.869206, -4.32262e-08, -0.49445, -3.82137e-15, -1, 8.74228e-08, -0.49445, -7.59884e-08, -0.869206, 409.35, 70.8655, 288.75 )
+
+[node name="Material39" parent="HTerrain/Scatter3D" instance=ExtResource( 2 )]
+transform = Transform( -0.236127, 8.49507e-08, 0.971722, -3.82137e-15, -1, 8.74228e-08, 0.971722, 2.06429e-08, 0.236127, 368.794, 106.186, 241.514 )
+
+[node name="Material40" parent="HTerrain/Scatter3D" instance=ExtResource( 2 )]
+transform = Transform( 0.12129, -8.67774e-08, -0.992617, -3.82137e-15, -1, 8.74228e-08, -0.992617, -1.06035e-08, -0.12129, 342.075, 93.6817, 212.409 )
+
+[node name="Material41" parent="HTerrain/Scatter3D" instance=ExtResource( 2 )]
+transform = Transform( 0.830527, -4.86927e-08, -0.556979, -3.82137e-15, -1, 8.74228e-08, -0.556979, -7.2607e-08, -0.830527, 458.017, 39.8236, 223.383 )
+
+[node name="Material42" parent="HTerrain/Scatter3D" instance=ExtResource( 2 )]
+transform = Transform( -0.993895, 9.64556e-09, 0.110332, -3.82137e-15, -1, 8.74228e-08, 0.110332, 8.68891e-08, 0.993895, 500.005, 48.3476, 285.887 )
+
+[node name="Material43" parent="HTerrain/Scatter3D" instance=ExtResource( 2 )]
+transform = Transform( 0.7725, -5.55148e-08, -0.635015, -3.82137e-15, -1, 8.74228e-08, -0.635015, -6.75341e-08, -0.7725, 459.926, 67.3901, 269.665 )
+
+[node name="Material44" parent="HTerrain/Scatter3D" instance=ExtResource( 2 )]
+transform = Transform( -0.829912, -4.87727e-08, -0.557894, -3.82137e-15, -1, 8.74228e-08, -0.557894, 7.25532e-08, 0.829912, 409.35, 57.4525, 188.553 )
+
+[node name="Material45" parent="HTerrain/Scatter3D" instance=ExtResource( 2 )]
+transform = Transform( 0.228377, 8.51125e-08, 0.973573, -3.82137e-15, -1, 8.74228e-08, 0.973573, -1.99653e-08, -0.228377, 478.223, 21.1904, 165.688 )
+
+[node name="Material46" parent="HTerrain/Scatter3D" instance=ExtResource( 2 )]
+transform = Transform( 0.534449, 7.38898e-08, 0.845201, -3.82137e-15, -1, 8.74228e-08, 0.845201, -4.6723e-08, -0.534449, 429.545, 43.5697, 140.352 )
+
+[node name="Material47" parent="HTerrain/Scatter3D" instance=ExtResource( 2 )]
+transform = Transform( 0.470579, -7.71382e-08, -0.882358, -3.82137e-15, -1, 8.74228e-08, -0.882358, -4.11394e-08, -0.470579, 425.728, 44.2893, 137.49 )
+
+[node name="Material48" parent="HTerrain/Scatter3D" instance=ExtResource( 2 )]
+transform = Transform( -0.368493, 8.12709e-08, 0.92963, -3.82137e-15, -1, 8.74228e-08, 0.92963, 3.22147e-08, 0.368493, 336.982, 64.1226, 137.013 )
+
+[node name="Material49" parent="HTerrain/Scatter3D" instance=ExtResource( 2 )]
+transform = Transform( -0.236882, -8.49346e-08, -0.971539, -3.82137e-15, -1, 8.74228e-08, -0.971539, 2.07089e-08, 0.236882, 310.74, 41.9455, 85.9598 )
+
+[node name="Material50" parent="HTerrain/Scatter3D" instance=ExtResource( 2 )]
+transform = Transform( -0.456324, 7.779e-08, 0.889814, -3.82137e-15, -1, 8.74228e-08, 0.889814, 3.98931e-08, 0.456324, 379.459, 47.7209, 82.5714 )
+
+[node name="Material51" parent="HTerrain/Scatter3D" instance=ExtResource( 2 )]
+transform = Transform( -0.445679, -7.82603e-08, -0.895193, -3.82137e-15, -1, 8.74228e-08, -0.895193, 3.89625e-08, 0.445679, 466.774, 24.5135, 72.0745 )
+
+[node name="Material52" parent="HTerrain/Scatter3D" instance=ExtResource( 2 )]
+transform = Transform( -0.863016, -4.41639e-08, -0.505177, -3.82137e-15, -1, 8.74228e-08, -0.505177, 7.54473e-08, 0.863016, 377.551, 30.0937, 16.2505 )
+
+[node name="Material53" parent="HTerrain/Scatter3D" instance=ExtResource( 2 )]
+transform = Transform( 0.797938, -5.26931e-08, -0.602739, -3.82137e-15, -1, 8.74228e-08, -0.602739, -6.9758e-08, -0.797938, 211.51, 22.3889, 26.7473 )
+
+[node name="Material54" parent="HTerrain/Scatter3D" instance=ExtResource( 2 )]
+transform = Transform( 0.997739, 5.87547e-09, 0.0672076, -3.82137e-15, -1, 8.74228e-08, 0.0672076, -8.72251e-08, -0.997739, 292.524, 55.6106, 38.3764 )
+
+[node name="Material55" parent="HTerrain/Scatter3D" instance=ExtResource( 2 )]
+transform = Transform( 0.631372, -6.77946e-08, -0.77548, -3.82137e-15, -1, 8.74228e-08, -0.77548, -5.51963e-08, -0.631372, 127.027, 4.48534, 177.896 )
+
+[node name="Material56" parent="HTerrain/Scatter3D" instance=ExtResource( 2 )]
+transform = Transform( 0.917114, 3.4849e-08, 0.398626, -3.82137e-15, -1, 8.74228e-08, 0.398626, -8.01767e-08, -0.917114, 172.355, 31.7451, 157.38 )
+
+[node name="Material57" parent="HTerrain/Scatter3D" instance=ExtResource( 2 )]
+transform = Transform( 0.885421, -4.06333e-08, -0.46479, -3.82137e-15, -1, 8.74228e-08, -0.46479, -7.7406e-08, -0.885421, 296.132, 51.9523, 138.138 )
+
+[node name="Material58" parent="HTerrain/Scatter3D" instance=ExtResource( 2 )]
+transform = Transform( -0.0773902, -8.71606e-08, -0.997001, -3.82137e-15, -1, 8.74228e-08, -0.997001, 6.76567e-09, 0.0773902, 267.188, 25.0936, 92.4966 )
+
+[node name="Material59" parent="HTerrain/Scatter3D" instance=ExtResource( 2 )]
+transform = Transform( 0.530688, 7.40967e-08, 0.847567, -3.82137e-15, -1, 8.74228e-08, 0.847567, -4.63942e-08, -0.530688, 429.052, 12.2389, 41.1337 )
+
+[node name="Material60" parent="HTerrain/Scatter3D" instance=ExtResource( 2 )]
+transform = Transform( 0.727995, -5.99355e-08, -0.685582, -3.82137e-15, -1, 8.74228e-08, -0.685582, -6.36434e-08, -0.727995, 469.684, 40.5732, 35.5677 )
+
+[node name="Material61" parent="HTerrain/Scatter3D" instance=ExtResource( 2 )]
+transform = Transform( -0.444364, -7.83174e-08, -0.895846, -3.82137e-15, -1, 8.74228e-08, -0.895846, 3.88476e-08, 0.444364, 470.797, 41.6554, 33.8979 )
+
+[node name="Material62" parent="HTerrain/Scatter3D" instance=ExtResource( 2 )]
+transform = Transform( 0.546386, -7.32195e-08, -0.837533, -3.82137e-15, -1, 8.74228e-08, -0.837533, -4.77666e-08, -0.546386, 488.534, 2.12768, 188.786 )
+
+[node name="Material63" parent="HTerrain/Scatter3D" instance=ExtResource( 2 )]
+transform = Transform( -0.84254, -4.70889e-08, -0.538634, -3.82137e-15, -1, 8.74228e-08, -0.538634, 7.36572e-08, 0.84254, 479.628, 50.3596, 261.702 )
+
+[node name="Material64" parent="HTerrain/Scatter3D" instance=ExtResource( 2 )]
+transform = Transform( 0.999178, 3.5431e-09, 0.0405284, -3.82137e-15, -1, 8.74228e-08, 0.0405284, -8.7351e-08, -0.999178, 348.97, 50.7123, 367.057 )
+
+[node name="Material65" parent="HTerrain/Scatter3D" instance=ExtResource( 2 )]
+transform = Transform( -0.923852, 3.34611e-08, 0.38275, -3.82137e-15, -1, 8.74228e-08, 0.38275, 8.07657e-08, 0.923852, 238.597, 47.875, 472.805 )
+
+[node name="Material66" parent="HTerrain/Scatter3D" instance=ExtResource( 2 )]
+transform = Transform( 0.415917, 7.95025e-08, 0.909402, -3.82137e-15, -1, 8.74228e-08, 0.909402, -3.63607e-08, -0.415917, 13.1722, 31.6086, 463.9 )
+
+[node name="Material67" parent="HTerrain/Scatter3D" instance=ExtResource( 2 )]
+transform = Transform( -0.955691, 2.57348e-08, 0.294371, -3.82137e-15, -1, 8.74228e-08, 0.294371, 8.35492e-08, 0.955691, 10.3892, 64.9617, 340.334 )
+
+[node name="Material68" parent="HTerrain/Scatter3D" instance=ExtResource( 2 )]
+transform = Transform( -0.685085, -6.36843e-08, -0.728463, -3.82137e-15, -1, 8.74228e-08, -0.728463, 5.9892e-08, 0.685085, 12.8322, 35.9027, 231.923 )
+
+[node name="Material69" parent="HTerrain/Scatter3D" instance=ExtResource( 2 )]
+transform = Transform( 0.283842, -8.38272e-08, -0.958871, -3.82137e-15, -1, 8.74228e-08, -0.958871, -2.48142e-08, -0.283842, 10.0492, 55.5551, 107.8 )
+
+[node name="MushRoom" parent="HTerrain/Scatter3D" instance=ExtResource( 1 )]
+transform = Transform( 0.697731, 0.52287, -0.489672, 0.391853, 0.293649, 0.871907, 0.599685, -0.800236, -3.49794e-08, 221.001, 46.1793, 170.691 )
+material/0 = SubResource( 2 )
+
+[node name="MushRoom2" parent="HTerrain/Scatter3D" instance=ExtResource( 1 )]
+transform = Transform( 0.989419, -0.145085, -6.34186e-09, 0, -4.37114e-08, 1, -0.145085, -0.989419, -4.32489e-08, 342.828, 73.6021, 165.059 )
+material/0 = SubResource( 2 )
+
+[node name="MushRoom3" parent="HTerrain/Scatter3D" instance=ExtResource( 1 )]
+transform = Transform( -0.822985, 0.568063, 2.48308e-08, 0, -4.37114e-08, 1, 0.568063, 0.822985, 3.59738e-08, 382.92, 53.6375, 103.279 )
+material/0 = SubResource( 2 )
+
+[node name="MushRoom4" parent="HTerrain/Scatter3D" instance=ExtResource( 1 )]
+transform = Transform( -0.593534, 0.804809, 3.51793e-08, 0, -4.37114e-08, 1, 0.804809, 0.593534, 2.59442e-08, 229.832, 30.2954, 52.8771 )
+material/0 = SubResource( 2 )
+
+[node name="MushRoom5" parent="HTerrain/Scatter3D" instance=ExtResource( 1 )]
+transform = Transform( 0.517006, 0.855982, 3.74162e-08, 0, -4.37114e-08, 1, 0.855982, -0.517006, -2.25991e-08, 97.296, 7.21742, 160.78 )
+material/0 = SubResource( 2 )
+
+[node name="MushRoom6" parent="HTerrain/Scatter3D" instance=ExtResource( 1 )]
+transform = Transform( -0.184231, -0.982883, -4.29632e-08, 0, -4.37114e-08, 1, -0.982883, 0.184231, 8.05298e-09, 98.9251, 20.2738, 285.324 )
+material/0 = SubResource( 2 )
+
+[node name="MushRoom7" parent="HTerrain/Scatter3D" instance=ExtResource( 1 )]
+transform = Transform( -0.73618, 0.423209, -0.528142, -0.457875, 0.263219, 0.849156, 0.498387, 0.866955, 3.78958e-08, 290.397, 72.6905, 284.767 )
+material/0 = SubResource( 2 )
+
+[node name="MushRoom8" parent="HTerrain/Scatter3D" instance=ExtResource( 1 )]
+transform = Transform( 0.0454361, 0.998967, 4.36663e-08, 0.502862, -0.0228717, 0.864064, 0.863172, -0.0392596, -0.503382, 316.001, 84.7241, 231.333 )
+material/0 = SubResource( 2 )
+
+[node name="MushRoom9" parent="HTerrain/Scatter3D" instance=ExtResource( 1 )]
+transform = Transform( 0.594797, -0.803876, -3.51385e-08, 0, -4.37114e-08, 1, -0.803876, -0.594797, -2.59994e-08, 436.716, 70.7985, 297.085 )
+material/0 = SubResource( 2 )
+
+[node name="MushRoom10" parent="HTerrain/Scatter3D" instance=ExtResource( 1 )]
+transform = Transform( 0.6119, -0.790935, -3.45729e-08, 0, -4.37114e-08, 1, -0.790935, -0.6119, -2.6747e-08, 430.12, 44.4036, 207.488 )
+material/0 = SubResource( 2 )
+
+[node name="MushRoom11" parent="HTerrain/Scatter3D" instance=ExtResource( 1 )]
+transform = Transform( -0.998835, 0.0482523, 2.10918e-09, 0, -4.37114e-08, 1, 0.0482523, 0.998835, 4.36605e-08, 398.112, 26.5068, 451.378 )
+material/0 = SubResource( 2 )
+
+[node name="MushRoom12" parent="HTerrain/Scatter3D" instance=ExtResource( 1 )]
+transform = Transform( -0.704357, -0.709846, -3.10284e-08, 0.325317, -0.322802, 0.888801, -0.630912, 0.626033, 0.458293, 375.833, 52.0331, 372.361 )
+material/0 = SubResource( 2 )
+
+[node name="MushRoom13" parent="HTerrain/Scatter3D" instance=ExtResource( 1 )]
+transform = Transform( -0.957795, -0.287451, -1.25649e-08, 0, -4.37114e-08, 1, -0.287451, 0.957795, 4.18666e-08, 161.54, 77.1248, 388.502 )
+material/0 = SubResource( 2 )
+
+[node name="MushRoom14" parent="HTerrain/Scatter3D" instance=ExtResource( 1 )]
+transform = Transform( 0.916672, 0.295336, 0.269239, -0.256267, -0.0825649, 0.963073, 0.30666, -0.951819, -4.16053e-08, 176.569, 46.8072, 454.738 )
+material/0 = SubResource( 2 )
+
+[node name="MushRoom15" parent="HTerrain/Scatter3D" instance=ExtResource( 1 )]
+transform = Transform( 0.698464, -0.715645, -3.12818e-08, 0, -4.37114e-08, 1, -0.715645, -0.698464, -3.05309e-08, 38.3369, 36.1848, 428.607 )
+material/0 = SubResource( 2 )
+
+[node name="MushRoom16" parent="HTerrain/Scatter3D" instance=ExtResource( 1 )]
+transform = Transform( -0.205549, 0.978647, 4.2778e-08, 0, -4.37114e-08, 1, 0.978647, 0.205549, 8.98483e-09, 276.711, 49.1765, 343.243 )
+material/0 = SubResource( 2 )

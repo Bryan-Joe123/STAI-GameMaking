@@ -1,0 +1,113 @@
+[gd_scene load_steps=12 format=2]
+
+[ext_resource path="res://Assets/Ui/new_styleboxflat.tres" type="StyleBox" id=1]
+[ext_resource path="res://Font/SecularOne-Regular.ttf" type="DynamicFontData" id=2]
+[ext_resource path="res://Script/Settings.gd" type="Script" id=3]
+[ext_resource path="res://Assets/Ui/ButtonPressed.png" type="Texture" id=4]
+[ext_resource path="res://Assets/Ui/Button.png" type="Texture" id=5]
+
+[sub_resource type="DynamicFont" id=1]
+size = 91
+font_data = ExtResource( 2 )
+
+[sub_resource type="DynamicFont" id=2]
+size = 41
+font_data = ExtResource( 2 )
+
+[sub_resource type="StyleBoxFlat" id=3]
+bg_color = Color( 0.231373, 0.34902, 0.596078, 1 )
+
+[sub_resource type="StyleBoxTexture" id=4]
+texture = ExtResource( 5 )
+region_rect = Rect2( 0, 0, 32, 16 )
+
+[sub_resource type="StyleBoxTexture" id=5]
+texture = ExtResource( 4 )
+region_rect = Rect2( 0, 0, 32, 16 )
+
+[sub_resource type="DynamicFont" id=6]
+size = 30
+font_data = ExtResource( 2 )
+
+[node name="Settings" type="Control"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+script = ExtResource( 3 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Panel" type="Panel" parent="."]
+anchor_right = 1.0
+anchor_bottom = 1.0
+custom_styles/panel = ExtResource( 1 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Title" type="Label" parent="."]
+anchor_left = 0.304688
+anchor_top = 0.030107
+anchor_right = 0.695219
+anchor_bottom = 0.252107
+margin_right = 0.0959473
+margin_bottom = -0.200012
+custom_fonts/font = SubResource( 1 )
+text = "Settings"
+align = 1
+valign = 1
+__meta__ = {
+"_edit_use_anchors_": true
+}
+
+[node name="graphics" type="Control" parent="."]
+anchor_right = 0.143555
+anchor_bottom = 0.13
+__meta__ = {
+"_edit_use_anchors_": true
+}
+
+[node name="graphics" type="Label" parent="graphics"]
+anchor_left = 0.436493
+anchor_top = 2.36175
+anchor_right = 1.62697
+anchor_bottom = 3.13098
+custom_fonts/font = SubResource( 2 )
+text = "Graphics"
+align = 1
+valign = 1
+__meta__ = {
+"_edit_use_anchors_": true
+}
+
+[node name="Slider" type="HSlider" parent="graphics"]
+anchor_left = 1.6764
+anchor_top = 2.5699
+anchor_right = 2.56756
+anchor_bottom = 2.96734
+margin_right = 3.8147e-06
+custom_styles/grabber_area_highlight = SubResource( 3 )
+max_value = 3.0
+value = 3.0
+__meta__ = {
+"_edit_use_anchors_": true
+}
+
+[node name="Back" type="Button" parent="."]
+anchor_left = 0.389648
+anchor_top = 0.816046
+anchor_right = 0.610352
+anchor_bottom = 0.914379
+size_flags_horizontal = 3
+size_flags_vertical = 3
+custom_styles/hover = SubResource( 4 )
+custom_styles/pressed = SubResource( 5 )
+custom_styles/normal = SubResource( 4 )
+custom_fonts/font = SubResource( 6 )
+text = "Back"
+__meta__ = {
+"_edit_use_anchors_": true
+}
+
+[connection signal="value_changed" from="graphics/Slider" to="." method="_on_Slider_value_changed"]
+[connection signal="pressed" from="Back" to="." method="_on_New_Game_pressed"]
