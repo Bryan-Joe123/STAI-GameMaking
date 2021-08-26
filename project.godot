@@ -26,13 +26,24 @@ _global_script_class_icons={
 
 [application]
 
-config/name="STAI GameMaking"
-run/main_scene="res://Scenes/MainScene.tscn"
+config/name="Këmi"
+run/main_scene="res://Scenes/TitleScreen.tscn"
+boot_splash/image="res://Untitled (4).png"
+boot_splash/bg_color=Color( 0.729412, 0.729412, 0.729412, 1 )
 config/icon="res://icon.png"
+config/windows_native_icon="res://icon.ico"
+
+[autoload]
+
+global="*res://Script/global.gd"
 
 [editor_plugins]
 
-enabled=PoolStringArray( "zylann.hterrain" )
+enabled=PoolStringArray( "res://addons/zylann.hterrain/plugin.cfg", "res://addons/zylann.scatter/plugin.cfg" )
+
+[global]
+
+full=false
 
 [input]
 
@@ -69,6 +80,21 @@ flash_light={
 pick={
 "deadzone": 0.5,
 "events": [ Object(InputEventKey,"resource_local_to_scene":false,"resource_name":"","device":0,"alt":false,"shift":false,"control":false,"meta":false,"command":false,"pressed":false,"scancode":69,"unicode":0,"echo":false,"script":null)
+ ]
+}
+rMouse={
+"deadzone": 0.5,
+"events": [ Object(InputEventMouseButton,"resource_local_to_scene":false,"resource_name":"","device":0,"alt":false,"shift":false,"control":false,"meta":false,"command":false,"button_mask":0,"position":Vector2( 0, 0 ),"global_position":Vector2( 0, 0 ),"factor":1.0,"button_index":2,"pressed":false,"doubleclick":false,"script":null)
+ ]
+}
+lMouse={
+"deadzone": 0.5,
+"events": [ Object(InputEventMouseButton,"resource_local_to_scene":false,"resource_name":"","device":0,"alt":false,"shift":false,"control":false,"meta":false,"command":false,"button_mask":0,"position":Vector2( 0, 0 ),"global_position":Vector2( 0, 0 ),"factor":1.0,"button_index":1,"pressed":false,"doubleclick":false,"script":null)
+ ]
+}
+toggle_tip={
+"deadzone": 0.5,
+"events": [ Object(InputEventKey,"resource_local_to_scene":false,"resource_name":"","device":0,"alt":false,"shift":false,"control":false,"meta":false,"command":false,"pressed":false,"scancode":84,"unicode":0,"echo":false,"script":null)
  ]
 }
 

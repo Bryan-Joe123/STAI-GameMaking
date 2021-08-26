@@ -1,23 +1,56 @@
-[gd_resource type="Environment" load_steps=3 format=2]
+[gd_resource type="Environment" load_steps=2 format=2]
 
-[ext_resource path="res://Assets/graphicscrate-space-nebula-environment-3_prev_orig.jpg" type="Texture" id=1]
-
-[sub_resource type="PanoramaSky" id=1]
-panorama = ExtResource( 1 )
+[ext_resource path="res://panoramasky.tres" type="PanoramaSky" id=1]
 
 [resource]
 background_mode = 2
-background_sky = SubResource( 1 )
-ambient_light_energy = 0.0
-ambient_light_sky_contribution = 0.0
+background_sky = ExtResource( 1 )
+ambient_light_color = Color( 0.768627, 0.87451, 1, 1 )
+ambient_light_energy = 0.4
+ambient_light_sky_contribution = 0.1
 fog_enabled = true
-fog_color = Color( 0.129412, 0.0666667, 0.329412, 0.596078 )
+fog_color = Color( 0.133333, 0, 0.219608, 1 )
 fog_sun_color = Color( 0.627451, 0.176471, 0.176471, 1 )
-fog_depth_begin = 1.0
-fog_depth_end = 225.1
+fog_depth_begin = 2.4
 fog_depth_curve = 2.92818
 fog_transmit_enabled = true
 fog_transmit_curve = 0.0796601
 fog_height_enabled = true
 fog_height_max = -20.0
 fog_height_curve = 18.3792
+auto_exposure_scale = 6.11
+auto_exposure_min_luma = 2.51
+auto_exposure_max_luma = 10.21
+auto_exposure_speed = 64.0
+ss_reflections_enabled = true
+ss_reflections_fade_in = 0.000336533
+ss_reflections_depth_tolerance = 16.3
+ssao_enabled = true
+ssao_intensity2 = 0.0
+ssao_bias = 0.001
+ssao_light_affect = 0.05
+ssao_color = Color( 0.152941, 0.152941, 0.152941, 1 )
+ssao_quality = 2
+ssao_edge_sharpness = 32.0
+dof_blur_far_enabled = true
+dof_blur_far_distance = 3.3
+dof_blur_far_transition = 1282.71
+dof_blur_far_amount = 0.13
+dof_blur_far_quality = 2
+dof_blur_near_enabled = true
+dof_blur_near_distance = 0.49
+dof_blur_near_transition = 12.45
+dof_blur_near_amount = 1.0
+dof_blur_near_quality = 2
+glow_enabled = true
+glow_levels/6 = true
+glow_intensity = 4.97
+glow_strength = 0.76
+glow_bloom = 0.52
+glow_blend_mode = 1
+glow_hdr_threshold = 0.0
+glow_hdr_luminance_cap = 59.92
+glow_hdr_scale = 1.33
+adjustment_enabled = true
+adjustment_brightness = 1.1
+adjustment_contrast = 1.2
