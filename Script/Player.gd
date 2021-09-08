@@ -6,6 +6,18 @@ const ACCEL_AIR = 1
 onready var accel = ACCEL_DEFAULT
 var gravity = 5
 var jump = 10
+var tutorial = false
+var tut_num = 0
+var tut_timer = true
+const tut_lines = [
+	"WELCOME TO THE TUTORIAL",
+	"You will learn how to play the Game",
+	"Pick Up metals on the floor",
+	"Switch to Bronze(CuSn) with scroll wheel and right click on the seperator",
+	"Now you have seperated Bronze into Copper and Tin",
+	"Right Click on the space ship with copper in you hand",
+	"Notice how the requirments for the bronze went down"
+]
 
 var seperate_data=[
 	{"in":"steel","out1":"iron","out2":"carbon","amount":1},
@@ -49,6 +61,7 @@ onready var camera = $Head/Camera
 
 func _ready():
 	Input.set_mouse_mode(Input.MOUSE_MODE_CAPTURED)
+	
 
 func _input(event):
 	#get mouse input for camera rotation
@@ -75,6 +88,14 @@ func _input(event):
 					selected += 1
 
 func _process(delta):
+	if tutorial:
+		print(tutorial)
+		$UI/Tutorial.visible=true
+		$UI/Tutorial/Label.text = tut_lines[tut_num]
+		if tut_timer and (tut_num in [1,4,0]):
+			$TutTimer.start()
+			tut_timer=false
+		
 	#camera physics interpolation to reduce physics jitter on high refresh-rate monitors
 	if Engine.get_frames_per_second() > Engine.iterations_per_second and pause==false:
 		camera.set_as_toplevel(true)
@@ -109,6 +130,8 @@ func _process(delta):
 			change_pickUI("RMouse")
 			if Input.is_action_just_pressed("rMouse") and selected < inventory.size() and inventory.size()<8:
 				seperate(inventory[selected].item)
+				if tutorial and tut_num==3:
+					next_tut_line()
 				pass
 		elif body.name=="Combiner":
 			$UI/Pointed.text = body.name
@@ -181,6 +204,8 @@ func pick():
 		if body.is_in_group("Pickable"):
 			if(inventory.size()<8):
 				add_inventory(body.mat,1)
+				if tutorial and tut_num==2:
+					next_tut_line()
 				body.queue_free()
 			pass
 	pass
@@ -272,6 +297,9 @@ func remove_inventory(item,amount):
 			count+=1
 	pass
 
+func next_tut_line():
+	tut_num+=1
+
 func check_inventory(item):
 	for x in inventory:
 		if x.item == item:
@@ -285,4 +313,10 @@ func _on_Timer_timeout():
 		if combine_selected:
 			combine(combine_selected,inventory[selected].item)
 		combine_selected=""
+	pass
+
+
+func _on_TutTimer_timeout():
+	tut_timer=true
+	next_tut_line()
 	pass

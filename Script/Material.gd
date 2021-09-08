@@ -1,7 +1,6 @@
 extends StaticBody
 
-export var mat = "iron"
-
+export(String) var mat = null
 var rng = RandomNumberGenerator.new()
 
 var mats = [
@@ -21,18 +20,28 @@ const items = ["iron","aluminum","bronze","zinc","magnesium","carbon"]
 func _ready():
 	rng.randomize()
 	var my_random_number = rng.randi_range(0, items.size())
-	print(my_random_number)
 	
-	
-	for x in mats:
-		if x.item == items[my_random_number-1]:
-			mat=x.item
-			var material = SpatialMaterial.new()
-			material.set_albedo(x.color)
-			material.set_metallic(1)
-			material.set_roughness(0.6)
-			$Mesh.set_surface_material(0, material)
-			break
+	if !mat:
+		for x in mats:
+			if x.item == items[my_random_number-1]:
+				mat=x.item
+				var material = SpatialMaterial.new()
+				material.set_albedo(x.color)
+				material.set_metallic(1)
+				material.set_roughness(0.6)
+				$Mesh.set_surface_material(0, material)
+				break
+	else:
+		var material = SpatialMaterial.new()
+		for x in mats:
+			print(mat)
+			if x.item == mat:
+				material.set_albedo(x.color)
+				
+				break
+		material.set_metallic(1)
+		material.set_roughness(0.6)
+		$Mesh.set_surface_material(0, material)
 	pass
 
 
